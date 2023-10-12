@@ -1,0 +1,6 @@
+.header {
+  background-image: url("../../images/backgroundImage.svg");
+  background-size: cover;
+  background-position: center;
+  height: 576px;
+}
