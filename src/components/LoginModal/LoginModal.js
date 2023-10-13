@@ -1,12 +1,13 @@
 import React from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import "./SignInModal.css";
+import "./LoginModal.css";
 
-function SignInModal({ handleCloseModal, isOpen, onLogin, onRegisterModal, onSubmit, isLoading }) {
+function LoginModal({ handleCloseModal, isOpen, onLogin, onRegisterModal, onSubmit, isLoading }) {
   return (
     <PopupWithForm
       title="Sign in"
       modalName="Login"
+      isOpen={isOpen}
       onClose={handleCloseModal}
       // onSubmit={handleSubmit}
       buttonText={isLoading ? "Signing in..." : "Sign in"}
@@ -38,4 +39,4 @@ function SignInModal({ handleCloseModal, isOpen, onLogin, onRegisterModal, onSub
   );
 }
 
-export default SignInModal;
+export default LoginModal;

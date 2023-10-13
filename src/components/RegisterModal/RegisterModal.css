@@ -1,13 +1,12 @@
-@font-face {
-  font-family: "Roboto";
-  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
-}
-
 .form__label {
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
+}
+
+.form__label:nth-of-type(2n) {
+  padding-top: 31px;
 }
 
 .form__label:last-of-type {

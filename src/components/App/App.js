@@ -2,7 +2,9 @@ import React from "react";
 import Header from "../Header/Header";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
-import SignInModal from "../SignInModal/SignInModal";
+import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+
 import "./App.css";
 
 function App() {
@@ -11,7 +13,8 @@ function App() {
       <Header />
       <About />
       <Footer />
-      <SignInModal />
+      <LoginModal />
+      {/* <RegisterModal /> */}
     </div>
   );
 }
