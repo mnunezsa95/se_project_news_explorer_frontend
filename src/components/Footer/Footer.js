@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import facebook from "../../images/facebook.svg";
+import linkedin from "../../images/linkedin2.svg";
 import github from "../../images/github.svg";
 
 function Footer() {
@@ -10,20 +10,24 @@ function Footer() {
         <p className="footer__text"> © 2023 Supersite, Powered by News API</p>
         <ul className="footer__list-items">
           <li>
-            <button className="footer__button">Home</button>
+            <a className="footer__link" href="#header">
+              Home
+            </a>
           </li>
           <li>
-            <button className="footer__button">TripleTen</button>
+            <a className="footer__link" href="https://tripleten.com/">
+              TripleTen
+            </a>
           </li>
           <li>
-            <button className="footer__button">
-              <img src={github} alt="github logo" />
-            </button>
+            <a className="footer__link" href="https://github.com/mnunezsa95">
+              <img className="footer__link-social" src={github} alt="github logo" />
+            </a>
           </li>
           <li>
-            <button className="footer__button ">
-              <img src={facebook} alt="facebook logo" />
-            </button>
+            <a className="footer__link " href="https://www.linkedin.com/in/marlon-nunez-35ba43b4/">
+              <img class="footer__link-social" src={linkedin} alt="linkedin logo" />
+            </a>
           </li>
         </ul>
       </div>
