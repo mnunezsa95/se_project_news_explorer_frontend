@@ -26,7 +26,7 @@ function Footer() {
           </li>
           <li>
             <a className="footer__link " href="https://www.linkedin.com/in/marlon-nunez-35ba43b4/">
-              <img class="footer__link-social" src={linkedin} alt="linkedin logo" />
+              <img className="footer__link-social" src={linkedin} alt="linkedin logo" />
             </a>
           </li>
         </ul>

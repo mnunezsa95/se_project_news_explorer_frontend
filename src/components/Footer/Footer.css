@@ -8,7 +8,8 @@
 }
 
 .footer {
-  padding: 0 104px 0 104px;
+  padding-left: calc(10% - 40px);
+  padding-right: calc(10% - 40px);
 }
 
 .footer__text {
@@ -23,7 +24,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0 26px 0;
+  padding: 0 0 26px 0;
 }
 
 .footer__list-items {
