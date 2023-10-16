@@ -5,6 +5,7 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import SuccessModal from "../SuccessModal/SuccessModal";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
     console.log(emailValue, passwordValue, usernameValue);
     handleCloseModal();
+    setActiveModal("success");
   };
 
   // Close modal via escape key
@@ -59,6 +61,9 @@ function App() {
           isLoading={isLoading}
           onSubmit={handleRegistration}
         />
+      )}
+      {activeModal === "success" && (
+        <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onLoginModal={handleLoginModal} />
       )}
     </div>
   );

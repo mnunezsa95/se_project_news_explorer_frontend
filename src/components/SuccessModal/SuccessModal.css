@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
+}
+
+.modal__content-success {
+  background-color: #fff;
+  max-width: 430px;
+  max-height: 410px;
+  height: auto;
+  width: 100%;
+  border-radius: 20px;
+  padding: 43px 79px 51px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal__title-success {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 315px;
+  max-width: 315px;
+  line-height: 1.2;
+  padding-bottom: 14px;
+}
+
+.modal__redirect-button-success {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  background-color: #fff;
+  font-weight: 400;
+  color: rgba(47, 113, 229, 1);
+  cursor: pointer;
+  padding: 0;
+  border-width: 0;
+  margin: 0;
+  text-align: left;
+}
