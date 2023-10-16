@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
+import NewsCard from "../NewsCard/NewsCard";
 import "./App.css";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
   return (
     <div className="page">
       <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
+      <NewsCard />
       <About />
       <Footer />
       {activeModal === "login" && (
