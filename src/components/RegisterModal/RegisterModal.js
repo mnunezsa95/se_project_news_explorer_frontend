@@ -2,7 +2,7 @@ import React from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./RegisterModal.css";
 
-function RegisterModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isLoading }) {
+function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isLoading }) {
   return (
     <PopupWithForm
       title="Sign up"
@@ -13,7 +13,7 @@ function RegisterModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, is
       buttonText={isLoading ? "Signing up..." : "Sign up"}
       hasRedirectButton={true}
       redirectButtonText=" Sign in"
-      redirectButtonClick={onRegisterModal}
+      redirectButtonClick={onLoginModal}
     >
       <div>
         <label className="form__label">

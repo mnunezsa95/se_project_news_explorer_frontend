@@ -1,6 +1,6 @@
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({ onLoginModal }) {
   return (
     <div className="nav">
       <div className="logo-container">
@@ -12,7 +12,9 @@ function Navigation() {
             <button className="nav__button">Home</button>
           </li>
           <li>
-            <button className="nav__button nav__button-signin">Sign in</button>
+            <button className="nav__button nav__button-signin" onClick={onLoginModal}>
+              Sign in
+            </button>
           </li>
         </ul>
       </div>
