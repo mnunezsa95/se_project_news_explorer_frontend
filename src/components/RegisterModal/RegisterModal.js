@@ -27,11 +27,11 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isLoa
       redirectButtonClick={onLoginModal}
     >
       <div>
-        <label className="form__label">
+        <label className="form__label" htmlFor="email">
           Email
           <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" value={emailValue} onChange={handleEmailChange} />
         </label>
-        <label className="form__label">
+        <label className="form__label" htmlFor="password">
           Password
           <input
             className="form__input-text"
@@ -45,7 +45,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isLoa
             onChange={handlePasswordChange}
           />
         </label>
-        <label className="form__label">
+        <label className="form__label" htmlFor="username">
           Username
           <input
             className="form__input-text"
@@ -57,6 +57,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isLoa
             onChange={handleUsernameChange}
           />
         </label>
+        <span className="form__error-disabled">This email is not available</span>
       </div>
     </PopupWithForm>
   );

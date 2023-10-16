@@ -26,11 +26,12 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isLoa
       redirectButtonClick={onRegisterModal}
     >
       <div>
-        <label className="form__label">
+        <label className="form__label" htmlFor="email">
           Email
           <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" value={emailValue} onChange={handleEmailChange} />
         </label>
-        <label className="form__label">
+        <span className="form__input-error-disabled">Invalid email address</span>
+        <label className="form__label" htmlFor="password">
           Password
           <input
             className="form__input-text"
