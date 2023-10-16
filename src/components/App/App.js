@@ -20,6 +20,11 @@ function App() {
     handleCloseModal();
   };
 
+  const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
+    console.log(emailValue, passwordValue, usernameValue);
+    handleCloseModal();
+  };
+
   // Close modal via escape key
   useEffect(() => {
     if (!activeModal) return;
@@ -52,6 +57,7 @@ function App() {
           onLoginModal={handleLoginModal}
           handleCloseModal={handleCloseModal}
           isLoading={isLoading}
+          onSubmit={handleRegistration}
         />
       )}
     </div>
