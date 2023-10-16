@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
+}
+
+.search__form-container {
+  position: relative;
+  max-width: 608px;
+  max-height: 64px;
+  width: 597px;
+  border-radius: 100px;
+  border: 0px solid #d1d2d6;
+  background-color: white;
+  color: #000;
+}
+
+.search__form-input {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375;
+  width: 370px;
+  overflow: scroll;
+  margin-left: 20px;
+  margin-top: 18px;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.search__form-input::placeholder {
+  color: #b6bcbf;
+}
+
+.search__form-button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.15;
+  max-width: 168px;
+  margin-left: 39px;
+  padding: 17.5px 59px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: 1px solid #2f71e5;
+  background-color: #2f71e5;
+  color: #fff;
+}
+
+.search__form-button:hover {
+  background-color: #347eff;
+}
+
+.search__form-button:active {
+  background-color: #2a65cc;
+}
