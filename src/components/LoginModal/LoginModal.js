@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./LoginModal.css";
 
-function LoginModal({ handleCloseModal, isOpen, onLogin, onRegisterModal, onSubmit, isLoading }) {
+function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isLoading }) {
+  const [emailValue, setEmailValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
+  const handleEmailChange = (evt) => setEmailValue(evt.target.value);
+  const handlePasswordChange = (evt) => setPasswordValue(evt.target.value);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onSubmit({ emailValue, passwordValue });
+  };
+
   return (
     <PopupWithForm
       title="Sign in"
       modalName="Login"
       isOpen={isOpen}
       onClose={handleCloseModal}
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       buttonText={isLoading ? "Signing in..." : "Sign in"}
       hasRedirectButton={true}
       redirectButtonText=" Sign up"
@@ -18,7 +28,7 @@ function LoginModal({ handleCloseModal, isOpen, onLogin, onRegisterModal, onSubm
       <div>
         <label className="form__label">
           Email
-          <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" /> {/*! //! Add value and onChange*/}
+          <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" value={emailValue} onChange={handleEmailChange} />
         </label>
         <label className="form__label">
           Password
@@ -30,8 +40,8 @@ function LoginModal({ handleCloseModal, isOpen, onLogin, onRegisterModal, onSubm
             minLength="1"
             maxLength="8"
             placeholder="Enter Password"
-            // value={""}
-            // onChange={""}
+            value={passwordValue}
+            onChange={handlePasswordChange}
           />
         </label>
       </div>
