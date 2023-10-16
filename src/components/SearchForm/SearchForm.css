@@ -21,9 +21,8 @@
   line-height: 1.375;
   width: 370px;
   overflow: scroll;
-  margin-left: 20px;
-  margin-top: 18px;
   padding: 0;
+  margin-left: 20px;
   border: none;
   outline: none;
 }
