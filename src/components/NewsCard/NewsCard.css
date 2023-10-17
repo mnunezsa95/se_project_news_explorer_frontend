@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../../../public/vendor/fonts/roboto-slab-400-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
+}
+
+.newscard__container {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.newscard__image {
+  height: 272px;
+  width: 400px;
+  border-radius: 25px 25px 0 0;
+}
+
+.newscard__info-container {
+  padding-top: 20px;
+  max-width: 400px;
+  max-height: 576px;
+  border-radius: 0 0 25px 25px;
+}
+
+.newscard__info-date {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  font-weight: 400;
+  color: rgba(182, 188, 191, 1);
+  padding-bottom: 12px;
+  padding-left: 24px;
+}
+
+.newscard__info-title {
+  font-size: 1.625rem;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  color: rgba(26, 27, 34, 1);
+  max-width: 352px;
+  overflow: hidden;
+  line-height: 1.15;
+  padding-bottom: 16px;
+  padding-left: 24px;
+}
+
+.newscard__info-text {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: rgba(26, 27, 34, 1);
+  max-width: 352px;
+  overflow: hidden;
+  line-height: 1.375;
+  padding-bottom: 18px;
+  padding-left: 24px;
+}
+
+.newscard__info-publisher {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  max-width: 352px;
+  overflow: hidden;
+  line-height: 1.25;
+  color: rgba(182, 188, 191, 1);
+  padding-bottom: 24px;
+  padding-left: 24px;
+}
