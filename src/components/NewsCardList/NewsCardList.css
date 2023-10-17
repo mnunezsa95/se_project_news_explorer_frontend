@@ -1,0 +1,33 @@
+.newscardlist-section {
+  background-color: rgba(245, 246, 247, 1);
+  padding-left: calc(10% - 40px);
+  padding-right: calc(10% - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newscardlist__title {
+  align-self: baseline;
+  font-family: "Roboto Slab";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 46px;
+  padding: 0;
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 64px;
+}
+
+.newscardlist__container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1250px;
+  gap: 16px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  padding-bottom: 64px;
+}

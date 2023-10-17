@@ -13,7 +13,7 @@ function NewsCard() {
           Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice,
           which Louv attributes to nature educator Jon Young, is for both adults and children to find...
         </p>
-        <p className="newscard__info-publisher">TREEHUGGER</p>
+        <p className="newscard__info-publisher">National Geographic</p>
       </div>
     </div>
   );

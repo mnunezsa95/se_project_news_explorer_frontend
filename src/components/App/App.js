@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
+import Main from "../Main/Main";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
-import NewsCard from "../NewsCard/NewsCard";
 import "./App.css";
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="page">
       <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
-      <NewsCard />
+      <Main />
       <About />
       <Footer />
       {activeModal === "login" && (
