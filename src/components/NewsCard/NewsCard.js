@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import "./NewsCard.css";
 import test_image from "../../images/test_image.jpg";
 
+//! Will need to use some kind of state to handle the "Sign in to save articles" & "Remove from saved"
+
 function NewsCard() {
   return (
     <div className="newscard__container">
-      <button className="newscard__bookmark-button"></button>
+      <div className="newscard__bookmark-section">
+        <p className="newscard__bookmark-additional">Sign in to save articles</p>
+        <button className="newscard__bookmark-button"></button>
+      </div>
       <img className="newscard__image" src={test_image} alt="news article " />
       <div className="newscard__info-container">
         <p className="newscard__info-date">November 4, 2020</p>
