@@ -58,9 +58,11 @@
   font-weight: 500;
   line-height: 1.33;
   margin-bottom: 80px;
+  transition: 0s linear 0.2s, opacity 0.2s linear;
 }
 
 .newscardlist__button:hover {
   opacity: 0.9;
   background: #e8e8e8;
+  font-weight: 600;
 }

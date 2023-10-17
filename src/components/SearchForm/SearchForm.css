@@ -44,6 +44,7 @@
   border: 1px solid #2f71e5;
   background-color: #2f71e5;
   color: #fff;
+  transition: 0s linear 0.2s, background-color 0.2s linear;
 }
 
 .search__form-button:hover {
