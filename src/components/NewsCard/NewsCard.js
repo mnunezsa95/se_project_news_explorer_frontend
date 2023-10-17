@@ -5,6 +5,7 @@ import test_image from "../../images/test_image.jpg";
 function NewsCard() {
   return (
     <div className="newscard__container">
+      <button className="newscard__bookmark-button"></button>
       <img className="newscard__image" src={test_image} alt="news article " />
       <div className="newscard__info-container">
         <p className="newscard__info-date">November 4, 2020</p>
