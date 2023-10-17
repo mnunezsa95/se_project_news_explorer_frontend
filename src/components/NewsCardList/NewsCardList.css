@@ -1,4 +1,14 @@
-.newscardlist-section {
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../../../public/vendor/fonts/roboto-slab-400-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
+}
+
+.newscardlist__section {
   background-color: rgba(245, 246, 247, 1);
   padding-left: calc(10% - 40px);
   padding-right: calc(10% - 40px);
@@ -30,4 +40,27 @@
   margin: 0;
   flex-wrap: wrap;
   padding-bottom: 64px;
+}
+
+.newscardlist__button {
+  border-radius: 80px;
+  background: #fff;
+  width: 288px;
+  height: 64px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: #1a1b22;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-bottom: 80px;
+}
+
+.newscardlist__button:hover {
+  opacity: 0.9;
+  background: #e8e8e8;
 }
