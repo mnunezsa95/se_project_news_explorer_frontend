@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Main from "../Main/Main";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
@@ -44,6 +45,7 @@ function App() {
       <Main />
       <About />
       <Footer />
+      <SavedNewsHeader />
       {activeModal === "login" && (
         <LoginModal
           isOpen={activeModal === "login"}
