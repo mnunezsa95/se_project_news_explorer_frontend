@@ -21,7 +21,7 @@
   color: #b6bcbf;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.375;
   max-width: 433px;
 }
@@ -35,12 +35,6 @@
 .footer__links {
   display: flex;
   gap: 35px;
-}
-
-.footer__icons {
-  display: flex;
-  gap: 22px;
-  align-items: center;
 }
 
 .footer__button {
@@ -59,9 +53,15 @@
   opacity: 0.7;
 }
 
+.footer__icons {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
 .footer__link-github-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background-image: url(../../images/github.svg);
   background-size: cover;
   background-position: center;
@@ -72,8 +72,8 @@
 }
 
 .footer__link-linkedin-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background-image: url(../../images/linkedin2.svg);
   background-size: cover;
   background-position: center;
@@ -91,13 +91,11 @@
     padding-top: 24px;
     padding-bottom: 18px;
   }
-
   .footer__copyright {
     font-size: 1rem;
     max-width: 300px;
   }
-
-  .footer__link {
+  .footer__button {
     font-size: 1rem;
   }
 }
@@ -108,12 +106,8 @@
     gap: 35px;
     padding: 20px 16px;
   }
-  .footer__copyright {
-    max-width: 288px;
-  }
   .footer__nav {
     width: 100%;
-    display: flex;
     justify-content: space-between;
   }
   .footer__links {
@@ -121,16 +115,6 @@
     align-items: flex-start;
   }
   .footer__icons {
-    display: flex;
-    gap: 22px;
     align-items: start;
-  }
-  .footer__link-linkedin-icon {
-    width: 24px;
-    height: 24px;
-  }
-  .footer__link-github-icon {
-    width: 24px;
-    height: 24px;
   }
 }

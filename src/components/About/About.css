@@ -86,7 +86,7 @@
   }
 
   .about__info-container {
-    max-width: 375px;
+    max-width: 100%;
     padding-top: 24px;
   }
 
