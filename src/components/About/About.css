@@ -11,8 +11,8 @@
 .about {
   display: flex;
   column-gap: 7%;
-  padding-left: calc(10% - 40px);
-  padding-right: calc(10% - 40px);
+  margin-left: calc(10% - 40px);
+  margin-right: calc(10% - 40px);
   padding-top: 80px;
   padding-bottom: 80px;
 }
@@ -78,8 +78,8 @@
   .about {
     display: flex;
     flex-direction: column;
-    padding-left: 24px;
-    padding-right: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
     padding-top: 32px;
     padding-bottom: 128px;
     align-items: center;

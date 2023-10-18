@@ -76,3 +76,13 @@
     width: 152px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .nav {
+    padding: 0 16px 0 16px;
+  }
+
+  .logo-name {
+    font-size: 1rem;
+  }
+}
