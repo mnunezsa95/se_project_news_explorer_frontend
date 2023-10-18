@@ -42,3 +42,19 @@
   font-weight: 400;
   padding-bottom: 56px;
 }
+
+@media screen and (max-width: 768px) {
+  .saved-news-header__title {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+
+  .saved-news-header__news-counter {
+    max-width: 336px;
+    font-size: 1.875rem;
+    padding-bottom: 16px;
+    line-height: 1.13;
+  }
+}
