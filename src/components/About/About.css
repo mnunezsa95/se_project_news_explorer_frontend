@@ -41,8 +41,8 @@
 .about__text {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  font-size: 1.12rem;
-  line-height: 1.3;
+  font-size: 1.125rem;
+  line-height: 1.5;
   padding-top: 24px;
 }
 
@@ -71,5 +71,31 @@
   .about__text {
     font-size: 1rem;
     padding-top: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 32px;
+    padding-bottom: 128px;
+    align-items: center;
+  }
+
+  .about__info-container {
+    max-width: 375px;
+    padding-top: 24px;
+  }
+
+  .about__image-author {
+    max-width: 272px;
+    max-height: 272px;
+  }
+
+  .about__text {
+    font-size: 1.125rem;
   }
 }

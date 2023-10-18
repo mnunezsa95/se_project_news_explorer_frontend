@@ -1,35 +1,24 @@
 import React from "react";
 import "./Footer.css";
-import linkedin from "../../images/linkedin2.svg";
-import github from "../../images/github.svg";
 
 function Footer() {
+  const handleGitHubLink = () => window.open("https://github.com/mnunezsa95");
+  const handleLinkedinLink = () => window.open("https://www.linkedin.com/in/marlon-nunez-35ba43b4/");
+
   return (
     <footer className="footer">
-      <div className="footer__container">
-        <p className="footer__text"> © 2023 Supersite, Powered by News API</p>
-        <ul className="footer__list-items">
-          <li>
-            <a className="footer__link" href="#header">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="footer__link" href="https://tripleten.com/">
-              TripleTen
-            </a>
-          </li>
-          <li>
-            <a className="footer__link" href="https://github.com/mnunezsa95">
-              <img className="footer__link-social" src={github} alt="github logo" />
-            </a>
-          </li>
-          <li>
-            <a className="footer__link " href="https://www.linkedin.com/in/marlon-nunez-35ba43b4/">
-              <img className="footer__link-social" src={linkedin} alt="linkedin logo" />
-            </a>
-          </li>
-        </ul>
+      <p className="footer__copyright"> © 2023 Supersite, Powered by News API</p>
+      <div className="footer__nav">
+        <div className="footer__links">
+          <button className="footer__button">Home</button>
+          <button className="footer__button" href="https://tripleten.com/">
+            TripleTen
+          </button>
+        </div>
+        <div className="footer__icons">
+          <button className="footer__link footer__link-github-icon" onClick={handleGitHubLink}></button>
+          <button className="footer__link footer__link-linkedin-icon" onClick={handleLinkedinLink}></button>
+        </div>
       </div>
     </footer>
   );

@@ -8,58 +8,129 @@
 }
 
 .footer {
-  padding-left: calc(10% - 40px);
-  padding-right: calc(10% - 40px);
-}
-
-.footer__text {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1.125rem;
-  color: rgba(182, 188, 191, 1);
-  max-width: 400px;
-}
-
-.footer__container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0 26px 0;
+  padding-left: calc(10% - 40px);
+  padding-right: calc(10% - 40px);
+  padding-top: 32px;
+  padding-bottom: 26px;
 }
 
-.footer__list-items {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  column-gap: 20px;
-  padding-left: 0px;
-}
-
-.footer__link {
+.footer__copyright {
+  color: #b6bcbf;
   font-family: "Roboto", sans-serif;
+  font-size: 1rem;
   font-weight: 400;
-  font-size: 1.12rem;
-  background-color: white;
+  line-height: 1.375;
+  max-width: 433px;
+}
+
+.footer__nav {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+.footer__links {
+  display: flex;
+  gap: 35px;
+}
+
+.footer__icons {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.footer__button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.33;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all ease 380ms;
+  padding: 0;
+}
+
+.footer__button:hover {
+  opacity: 0.7;
+}
+
+.footer__link-github-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../images/github.svg);
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footer__link-linkedin-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../images/linkedin2.svg);
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.footer__link-social {
-  width: 24px;
-  height: 24px;
+.footer__link:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
-  .footer__text {
-    font-size: 1rem;
+  .footer {
+    padding-top: 24px;
+    padding-bottom: 18px;
   }
 
-  .footer__container {
-    padding: 24px 0 18px 0;
+  .footer__copyright {
+    font-size: 1rem;
+    max-width: 300px;
   }
 
   .footer__link {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    flex-direction: column-reverse;
+    gap: 35px;
+    padding: 20px 16px;
+  }
+  .footer__copyright {
+    max-width: 288px;
+  }
+  .footer__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__icons {
+    display: flex;
+    gap: 22px;
+    align-items: start;
+  }
+  .footer__link-linkedin-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .footer__link-github-icon {
+    width: 24px;
+    height: 24px;
   }
 }
