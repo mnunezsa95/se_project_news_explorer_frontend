@@ -164,3 +164,27 @@
     font-size: 0.9rem;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .newscard__container {
+    max-width: 393px;
+  }
+
+  .newscard__image {
+    height: 196px;
+    width: 288px;
+  }
+
+  .newscard__info-container {
+    max-height: 440px;
+    width: 256px;
+  }
+
+  .newscard__info-title {
+    max-width: 256px;
+  }
+
+  .newscard__info-text {
+    max-width: 256px;
+  }
+}
