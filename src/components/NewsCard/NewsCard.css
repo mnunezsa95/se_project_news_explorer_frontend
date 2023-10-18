@@ -122,3 +122,45 @@
   max-width: 352px;
   overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+  .newscard__bookmark-section {
+    right: 8px;
+    top: 8px;
+    gap: 3px;
+  }
+
+  .newscard__container {
+    max-width: 224px;
+  }
+
+  .newscard__info-container {
+    max-height: 420px;
+    padding: 16px;
+  }
+
+  .newscard__info-date {
+    font-size: 1rem;
+  }
+
+  .newscard__image {
+    height: 150px;
+  }
+
+  .newscard__info-title {
+    max-width: 192px;
+    font-size: 1.375rem;
+  }
+
+  .newscard__info-text {
+    max-width: 192px;
+    max-height: 88px;
+    line-height: 1.33;
+    height: 88px;
+    overflow: hidden;
+  }
+
+  .newscard__info-publisher {
+    font-size: 0.9rem;
+  }
+}
