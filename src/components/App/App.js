@@ -51,7 +51,7 @@ function App() {
           <About />
         </Route>
         <Route path="/saved-news">
-          <SavedNewsHeader inSavedNewsRoute={true} />
+          <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNewsRoute={true} />
           <SavedNews />
         </Route>
       </Switch>
