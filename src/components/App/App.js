@@ -3,7 +3,6 @@ import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Main from "../Main/Main";
-import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -43,7 +42,6 @@ function App() {
     <div className="page">
       <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
       <Main />
-      <About />
       <Footer />
       <SavedNewsHeader />
       {activeModal === "login" && (
