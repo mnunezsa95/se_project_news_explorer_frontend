@@ -103,8 +103,8 @@
 @media screen and (max-width: 480px) {
   .footer {
     flex-direction: column-reverse;
-    gap: 35px;
-    padding: 20px 0 20px 0;
+    gap: 38px;
+    padding: 22px 0 22px 0;
     margin-left: 16px;
     margin-right: 16px;
   }
@@ -118,5 +118,6 @@
   }
   .footer__icons {
     align-items: start;
+    gap: 20px;
   }
 }

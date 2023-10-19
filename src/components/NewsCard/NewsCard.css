@@ -167,24 +167,24 @@
 
 @media screen and (max-width: 425px) {
   .newscard__container {
-    max-width: 393px;
+    max-width: 323px;
   }
 
   .newscard__image {
     height: 196px;
-    width: 288px;
+    width: 293px;
   }
 
   .newscard__info-container {
     max-height: 440px;
-    width: 256px;
+    max-width: 261px;
   }
 
   .newscard__info-title {
-    max-width: 256px;
+    max-width: 261.5px;
   }
 
   .newscard__info-text {
-    max-width: 256px;
+    max-width: 261.5px;
   }
 }
