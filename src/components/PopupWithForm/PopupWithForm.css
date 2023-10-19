@@ -93,3 +93,37 @@
 .modal__submit-button:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+@media screen and (max-width: 570px) {
+  .modal__close-button {
+    right: 0px;
+    top: -50px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .modal {
+    justify-content: center;
+  }
+
+  .modal__content {
+    max-width: 320px;
+    padding: 20px 16px 16px 16px;
+  }
+
+  .modal__close-button {
+    right: 0px;
+    top: -50px;
+  }
+
+  .modal__submit-button {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    background-color: rgba(230, 232, 235, 1);
+    font-weight: 500;
+    color: rgba(182, 188, 191, 1);
+    border-color: none;
+    padding: 14px 79px;
+  }
+}
