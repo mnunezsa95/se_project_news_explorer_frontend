@@ -6,8 +6,8 @@ import "./Main.css";
 function Main() {
   return (
     <>
-      <NewsCardList />
       <Loading />
+      <NewsCardList />
     </>
   );
 }

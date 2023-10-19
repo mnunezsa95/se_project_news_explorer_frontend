@@ -55,7 +55,6 @@ function App() {
           <Main />
         </Route>
       </Switch>
-
       <Footer />
       {activeModal === "login" && (
         <LoginModal
