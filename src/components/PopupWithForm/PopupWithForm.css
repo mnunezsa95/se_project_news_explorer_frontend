@@ -101,29 +101,30 @@
   }
 }
 
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 425px) {
   .modal {
-    justify-content: center;
+    align-items: flex-end;
   }
 
   .modal__content {
-    max-width: 320px;
+    max-width: 520px;
     padding: 20px 16px 16px 16px;
-  }
-
-  .modal__close-button {
-    right: 0px;
-    top: -50px;
+    height: 560px;
+    justify-content: flex-start;
   }
 
   .modal__submit-button {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    background-color: rgba(230, 232, 235, 1);
-    font-weight: 500;
-    color: rgba(182, 188, 191, 1);
-    border-color: none;
+    font-size: 1rem;
     padding: 14px 79px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .modal__content {
+    max-width: 280px;
+  }
+  .modal__submit-button {
+    font-size: 1rem;
+    padding: 14px 60px;
   }
 }
