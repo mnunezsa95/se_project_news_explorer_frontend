@@ -4,7 +4,7 @@ import test_image from "../../images/test_image.jpg";
 
 //! Will need to use some kind of state to handle the "Sign in to save articles" & "Remove from saved"
 
-function NewsCard() {
+function NewsCard({ isLoggedIn }) {
   return (
     <div className="newscard__container">
       <div className="newscard__bookmark-section">

@@ -13,23 +13,32 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import "./App.css";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [token, setToken] = React.useState("");
 
   const handleRegisterModal = () => setActiveModal("register");
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
 
-  const handleLogin = ({ emailValue, passwordValue }) => {
-    console.log(emailValue, passwordValue);
-    handleCloseModal();
-  };
-
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
     console.log(emailValue, passwordValue, usernameValue);
     handleCloseModal();
     setActiveModal("success");
+  };
+
+  const handleLogin = ({ emailValue, passwordValue }) => {
+    console.log(emailValue, passwordValue);
+    handleCloseModal();
+    setIsLoggedIn(true);
+  };
+
+  const handleSignOut = () => {
+    // delete token
+    setCurrentUser(false);
+    setIsLoggedIn(false);
   };
 
   // Close modal via escape key
@@ -47,11 +56,11 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Header isLoggedIn={isLoggedIn} onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
-          <Main />
+          <Main isLoggedIn={isLoggedIn} />
           <About />
         </Route>
         <Route path="/saved-news">
-          <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNewsRoute={true} />
+          <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} />
           <SavedNews />
         </Route>
       </Switch>
