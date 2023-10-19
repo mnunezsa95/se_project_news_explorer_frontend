@@ -58,3 +58,19 @@
     line-height: 1.13;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .saved-news-header__info-container {
+    padding: 0;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .saved-news-header__news-counter {
+    padding-bottom: 50px;
+  }
+
+  .saved-news-header__news-keywords {
+    padding-bottom: 32px;
+  }
+}
