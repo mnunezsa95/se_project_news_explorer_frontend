@@ -13,7 +13,7 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import "./App.css";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
 
@@ -24,7 +24,6 @@ function App() {
   const handleLogin = ({ emailValue, passwordValue }) => {
     console.log(emailValue, passwordValue);
     handleCloseModal();
-    setIsLoggedIn(true);
   };
 
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
@@ -47,7 +46,7 @@ function App() {
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
+          <Header isLoggedIn={isLoggedIn} onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
           <Main />
           <About />
         </Route>
