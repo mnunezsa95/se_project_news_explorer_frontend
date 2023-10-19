@@ -107,7 +107,7 @@
     font-size: 1rem;
   }
   .nav__button-signin {
-    max-width: 152px;
+    max-width: 140px;
   }
   .nav__button-logout {
     padding: 8px 50px 8px 15px;
@@ -125,17 +125,17 @@
   .nav__container-links {
     column-gap: 8px;
   }
-
   .nav__button {
     font-size: 0.875rem;
   }
-
   .nav__button-signin {
-    padding: 6px;
-    max-width: 142px;
+    max-width: 125px;
   }
   .nav__button-logout {
-    padding: 6px 45px 6px 12px;
+    padding: 6px 40px 6px 12px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center right 12px;
   }
 }
 
