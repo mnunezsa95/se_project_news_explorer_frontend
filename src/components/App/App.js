@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
@@ -40,8 +41,12 @@ function App() {
 
   return (
     <div className="page">
-      <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
-      <Main />
+      <Switch>
+        <Route exact path="/">
+          <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
+          <Main />
+        </Route>
+      </Switch>
       <Footer />
       <SavedNewsHeader />
       {activeModal === "login" && (
