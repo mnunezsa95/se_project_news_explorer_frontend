@@ -19,12 +19,9 @@ function Navigation({ isLoggedIn, onLoginModal, inSavedNews }) {
             </Link>
           )}
           {isLoggedIn ? (
-            <button className={`nav__button nav__button-signin ${inSavedNews && "nav__button-saved-news nav__button-signin-saved-news"}`}>Marlon</button>
+            <button className={`nav__button nav__button-logout ${inSavedNews && "nav__button-saved-news nav__button-logout-saved-news"}`}>Marlon</button>
           ) : (
-            <button
-              className={`nav__button nav__button-signin  ${inSavedNews && "nav__button-saved-news nav__button-signin-saved-news"}`}
-              onClick={onLoginModal}
-            >
+            <button className="nav__button nav__button-signin" onClick={onLoginModal}>
               Sign in
             </button>
           )}
