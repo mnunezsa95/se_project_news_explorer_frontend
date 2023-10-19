@@ -11,6 +11,7 @@ function NewsCard({ isLoggedIn }) {
 
   return (
     <div className="newscard__container">
+      {isLoggedIn ? <div className="newscard__keyword-section">Yellowstone</div> : ""}
       <div className="newscard__bookmark-section">
         {isLoggedIn
           ? showIcon && <p className="newscard__bookmark-additional">Remove from saved</p>

@@ -8,6 +8,23 @@
   src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
 }
 
+.newscard__keyword-section {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #000;
+  max-height: 40px;
+  max-width: 120px;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 13px 15px;
+  border-radius: 8px;
+}
+
 .newscard__bookmark-section {
   position: absolute;
   right: 32px;
@@ -128,6 +145,11 @@
     right: 8px;
     top: 8px;
     gap: 3px;
+  }
+
+  .newscard__keyword-section {
+    left: 8px;
+    top: 8px;
   }
 
   .newscard__container {
