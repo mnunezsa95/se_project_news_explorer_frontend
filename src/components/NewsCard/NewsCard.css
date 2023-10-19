@@ -46,7 +46,7 @@
   background: no-repeat url("../../images/bookmark-button-hover.svg") #fff;
 }
 
-.newscard__remove-button {
+.newscard__delete-button {
   background: no-repeat url("../../images/delete-button-normal.svg") #fff;
   background-position: center;
   background-size: cover;
@@ -57,7 +57,7 @@
   border-radius: 8px;
 }
 
-.newscard__remove-button:hover {
+.newscard__delete-button:hover {
   background: no-repeat url("../../images/delete-button-hover.svg") #fff;
 }
 

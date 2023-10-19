@@ -5,11 +5,21 @@ import test_image from "../../images/test_image.jpg";
 //! Will need to use some kind of state to handle the "Sign in to save articles" & "Remove from saved"
 
 function NewsCard({ isLoggedIn }) {
+  const [showIcon, setShowIcon] = useState(false);
+  const handleShowIcon = () => setShowIcon(true);
+  const handleHideIcon = () => setShowIcon(false);
+
   return (
     <div className="newscard__container">
       <div className="newscard__bookmark-section">
-        <p className="newscard__bookmark-additional">Sign in to save articles</p>
-        <button className="newscard__bookmark-button"></button>
+        {isLoggedIn
+          ? showIcon && <p className="newscard__bookmark-additional">Remove from saved</p>
+          : showIcon && <p className="newscard__bookmark-additional">Sign in to save articles</p>}
+        {isLoggedIn ? (
+          <button className="newscard__delete-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon}></button>
+        ) : (
+          <button className="newscard__bookmark-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon}></button>
+        )}
       </div>
       <img className="newscard__image" src={test_image} alt="news article " />
       <div className="newscard__info-container">
