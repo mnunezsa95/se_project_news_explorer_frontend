@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import About from "../About/About";
 import Main from "../Main/Main";
+import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -47,12 +48,12 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
-          <About />
           <Main />
+          <About />
         </Route>
         <Route path="/saved-news">
           <SavedNewsHeader inSavedNewsRoute={true} />
-          <Main />
+          <SavedNews />
         </Route>
       </Switch>
       <Footer />
