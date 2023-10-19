@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import About from "../About/About";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
@@ -11,6 +12,7 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import "./App.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
 
@@ -21,6 +23,7 @@ function App() {
   const handleLogin = ({ emailValue, passwordValue }) => {
     console.log(emailValue, passwordValue);
     handleCloseModal();
+    setIsLoggedIn(true);
   };
 
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
@@ -44,11 +47,16 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Header onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
+          <About />
+          <Main />
+        </Route>
+        <Route path="/saved-news">
+          <SavedNewsHeader inSavedNewsRoute={true} />
           <Main />
         </Route>
       </Switch>
+
       <Footer />
-      <SavedNewsHeader />
       {activeModal === "login" && (
         <LoginModal
           isOpen={activeModal === "login"}
