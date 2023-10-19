@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./NewsCard.css";
 import test_image from "../../images/test_image.jpg";
 
-//! Will need to use some kind of state to handle the "Sign in to save articles" & "Remove from saved"
-
 function NewsCard({ isLoggedIn }) {
   const [showIcon, setShowIcon] = useState(false);
   const handleShowIcon = () => setShowIcon(true);
