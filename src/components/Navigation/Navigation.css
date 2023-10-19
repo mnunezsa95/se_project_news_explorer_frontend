@@ -19,7 +19,7 @@
   padding-right: calc(10% - 40px);
 }
 
-.logo-name {
+.nav__logo-name {
   margin: 0;
   font-family: "Roboto Slab", sans-serif;
   font-size: 1.5rem;
@@ -43,7 +43,7 @@
   font-size: 1.2rem;
   color: white;
   font-weight: 700;
-  padding: 12px;
+  padding: 8px 0 0 0;
 }
 
 .nav__button-signin {
@@ -51,38 +51,46 @@
   border: 1px solid rgba(255, 255, 255, 1);
   max-width: 175px;
   width: 175px;
+  padding: 8px;
 }
 
 @media screen and (max-width: 768px) {
   .nav {
-    height: 68px;
+    height: 66px;
   }
-
+  .nav__logo-name {
+    font-size: 1.2rem;
+  }
   .nav__container-links {
     column-gap: 16px;
   }
-
-  .logo-name {
-    font-size: 1.2rem;
-  }
-
   .nav__button {
     font-size: 1rem;
-    padding: 8px;
   }
-
   .nav__button-signin {
     max-width: 152px;
-    width: 152px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .nav {
     padding: 0 16px 0 16px;
+    height: 56px;
   }
-
-  .logo-name {
+  .nav__logo-name {
     font-size: 1rem;
+  }
+  .nav__container-links {
+    column-gap: 10px;
+  }
+  .nav__button-signin {
+    padding: 6px;
+    max-width: 142px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .nav__button {
+    display: none;
   }
 }

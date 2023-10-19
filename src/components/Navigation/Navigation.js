@@ -3,10 +3,10 @@ import "./Navigation.css";
 function Navigation({ onLoginModal }) {
   return (
     <div className="nav">
-      <div className="logo-container">
-        <h1 className="logo-name">NewsExplorer</h1>
+      <div className="nav__left-container">
+        <h1 className="nav__logo-name">NewsExplorer</h1>
       </div>
-      <div className="nav__container">
+      <div className="nav__right-container">
         <ul className="nav__container-links">
           <li>
             <button className="nav__button">Home</button>
