@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./MobileNav.css";
 
 function MobileNav({ isLoggedIn, inSavedNews, onLoginModal }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen);
 
   return (

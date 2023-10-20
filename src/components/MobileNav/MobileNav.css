@@ -104,8 +104,12 @@
 .mobile__nav-button-logout {
 }
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 425px) {
   .mobile__nav {
+    display: none;
+  }
+
+  .mobile__nav-menu {
     display: none;
   }
 }
