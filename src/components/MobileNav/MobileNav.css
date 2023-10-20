@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../../../public/vendor/fonts/roboto-slab-400-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
+}
+
+.mobile__nav {
+  color: white;
+  display: flex;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.mobile__nav-dark {
+  background-color: rgba(26, 27, 34, 1);
+}
+
+.mobile__nav-logo {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mobile__nav-button-hamburger {
+  background-image: url(../../images/mobile-menu-button-white.svg);
+  background-color: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mobile__nav-button-hamburger-saved-news {
+  background-image: url(../../images/mobile-menu-button-black.svg);
+}
+
+/* --------------------- */
+
+.mobile__nav-menu {
+  background-color: rgba(26, 27, 34, 1);
+}
+
+.mobile__nav-menu-saved-news {
+  background-color: white;
+}
+
+.mobile__nav-menu-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  row-gap: 22px;
+  padding: 16px 16px 24px 16px;
+  flex-shrink: 2;
+}
+
+.mobile__nav-button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.33;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.mobile__nav-button-saved-news {
+  color: black;
+}
+
+.mobile__nav-button-signin {
+  padding: 16px 117px;
+  border: 1px solid white;
+  border-radius: 100px;
+}
+
+.mobile__nav-button-signin-saved-news {
+  border: 1px solid black;
+}
+
+.mobile__nav-button-logout {
+}
+
+@media screen and (min-width: 426px) {
+  .mobile__nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .mobile__nav-button {
+    font-size: 1rem;
+  }
+  .mobile__nav-button-signin {
+    padding: 16px 100px;
+    border: 1px solid white;
+    border-radius: 100px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .mobile__nav-button {
+    font-size: 0.875rem;
+  }
+  .mobile__nav-button-signin {
+    padding: 16px 90px;
+    border: 1px solid white;
+    border-radius: 100px;
+  }
+}

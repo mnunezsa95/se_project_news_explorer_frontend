@@ -22,6 +22,7 @@ function App() {
   const handleRegisterModal = () => setActiveModal("register");
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
+  const handleMobileModal = () => setActiveModal("mobile");
 
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
     console.log(emailValue, passwordValue, usernameValue);

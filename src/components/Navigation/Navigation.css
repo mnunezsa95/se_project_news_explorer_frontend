@@ -44,23 +44,6 @@
   align-items: center;
 }
 
-.nav__container-mobile {
-  display: none;
-}
-
-.nav__button-mobile {
-  background-image: url(../../images/mobile-menu-button-white.svg);
-  background-color: transparent;
-  border: none;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-}
-
-.nav__button-mobile-saved-news {
-  background-image: url(../../images/mobile-menu-button-black.svg);
-}
-
 .nav__button {
   font-family: "Roboto", sans-serif;
   background: none;
@@ -157,11 +140,7 @@
 }
 
 @media screen and (max-width: 425px) {
-  .nav__button {
+  .nav {
     display: none;
-  }
-
-  .nav__container-mobile {
-    display: flex;
   }
 }
