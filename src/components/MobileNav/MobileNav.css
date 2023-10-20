@@ -28,6 +28,11 @@
   font-family: "Roboto Slab", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  color: white;
+}
+
+.mobile__nav-logo-saved-news {
+  color: black;
 }
 
 .mobile__nav-button-hamburger {
@@ -52,9 +57,6 @@
   height: 24px;
   padding: 0;
   cursor: pointer;
-}
-
-.mobile__nav-button-close-saved-news {
 }
 
 /* --------------------- */
