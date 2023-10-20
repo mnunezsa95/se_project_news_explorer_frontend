@@ -9,6 +9,9 @@ function Navigation({ isLoggedIn, onLoginModal, inSavedNews }) {
         <h1 className={`nav__logo ${inSavedNews && "nav__logo-saved-news"}`}>NewsExplorer</h1>
       </div>
       <div className="nav__right-container">
+        <div className="nav__container-mobile">
+          <button className={`nav__button-mobile ${inSavedNews && "nav__button-mobile-saved-news"}`}></button>
+        </div>
         <div className="nav__container-links">
           <Link to="/">
             <button className={`nav__button ${inSavedNews && "nav__button-saved-news"}`}>Home</button>

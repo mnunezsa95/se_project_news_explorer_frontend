@@ -2,7 +2,11 @@ import React from "react";
 import "./MobileNav.css";
 
 function MobileNav() {
-  return;
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
 }
 
 export default MobileNav;
