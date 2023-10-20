@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation({ isLoggedIn, onLoginModal, inSavedNews, onMobileModal }) {
+function Navigation({ isLoggedIn, onLoginModal, inSavedNews }) {
   return (
     <div className="nav">
       <div className="nav__left-container">
