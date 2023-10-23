@@ -12,6 +12,18 @@ function getcurrentDate() {
 
 export const currentDate = getcurrentDate();
 
+function getLastWeekDate() {
+  const time = new Date().getTime() - 604800000; // 604800000 = 1 weeek
+  const previousWeek = new Date(time);
+  const year = previousWeek.toLocaleString("default", { year: "numeric" });
+  const month = previousWeek.toLocaleString("default", { month: "2-digit" });
+  const day = previousWeek.toLocaleString("default", { day: "2-digit" });
+  const formattedDate = year + "-" + month + "-" + day;
+  return formattedDate;
+}
+
+export const previousWeek = getLastWeekDate();
+
 export const checkServerResponse = (res) => {
   if (!res.ok) return Promise.reject(`An error with the Status Code ${res.status} has occurred`);
   return res.json();
