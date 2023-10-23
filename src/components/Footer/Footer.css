@@ -59,7 +59,7 @@
   align-items: center;
 }
 
-.footer__link-github-icon {
+.footer__link-icon-github {
   width: 24px;
   height: 24px;
   background-image: url(../../images/github.svg);
@@ -71,7 +71,7 @@
   padding: 0;
 }
 
-.footer__link-linkedin-icon {
+.footer__link-icon-linkedin {
   width: 24px;
   height: 24px;
   background-image: url(../../images/linkedin2.svg);
@@ -82,7 +82,7 @@
   cursor: pointer;
 }
 
-.footer__link:hover {
+.footer__link-icon:hover {
   opacity: 0.7;
 }
 
@@ -119,5 +119,23 @@
   .footer__icons {
     align-items: start;
     gap: 20px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .footer__copyright {
+    font-size: 0.875rem;
+    max-width: 300px;
+  }
+  .footer__button {
+    font-size: 0.875rem;
+  }
+  .footer__link-icon-linkedin {
+    width: 20px;
+    height: 20px;
+  }
+  .footer__link-icon-github {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -210,3 +210,37 @@
     max-width: 261.5px;
   }
 }
+
+@media screen and (max-width: 295px) {
+  .newscard__container {
+    max-width: 280px;
+  }
+
+  .newscard__image {
+    height: 150px;
+    width: 240px;
+  }
+
+  .newscard__info-container {
+    max-height: 400px;
+    max-width: 240px;
+    padding: 12px;
+  }
+
+  .newscard__info-date {
+    font-size: 0.875rem;
+  }
+
+  .newscard__info-title {
+    max-width: 250px;
+    font-size: 1.125rem;
+  }
+
+  .newscard__info-text {
+    max-width: 250px;
+    font-size: 0.875rem;
+  }
+  .newscard__info-publisher {
+    font-size: 0.875rem;
+  }
+}

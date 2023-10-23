@@ -59,3 +59,16 @@
     padding-bottom: 50px;
   }
 }
+
+@media screen and (max-width: 295px) {
+  .loading__container {
+    padding-bottom: 40px;
+  }
+  .loading__spinner {
+    width: 68px;
+    height: 68px;
+  }
+  .loading__text {
+    font-size: 1rem;
+  }
+}

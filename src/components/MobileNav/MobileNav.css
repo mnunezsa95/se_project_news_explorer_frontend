@@ -106,7 +106,7 @@
 .mobile__nav-button-logout {
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 426px) {
   .mobile__nav {
     display: none;
   }

@@ -99,3 +99,21 @@
     font-size: 1.125rem;
   }
 }
+
+@media screen and (max-width: 295px) {
+  .about {
+    padding-bottom: 100px;
+  }
+
+  .about__image-author {
+    max-width: 265px;
+    max-height: 265px;
+  }
+
+  .about__title {
+    font-size: 1.5rem;
+  }
+  .about__text {
+    font-size: 0.875rem;
+  }
+}

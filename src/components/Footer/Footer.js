@@ -16,8 +16,8 @@ function Footer() {
           </button>
         </div>
         <div className="footer__icons">
-          <button className="footer__link footer__link-github-icon" onClick={handleGitHubLink}></button>
-          <button className="footer__link footer__link-linkedin-icon" onClick={handleLinkedinLink}></button>
+          <button className="footer__link-icon footer__link-icon-github" onClick={handleGitHubLink}></button>
+          <button className="footer__link-icon footer__link-icon-linkedin" onClick={handleLinkedinLink}></button>
         </div>
       </div>
     </footer>

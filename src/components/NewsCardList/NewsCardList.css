@@ -54,7 +54,7 @@
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.33;
-  margin-bottom: 80px;
+  margin: 0 auto 80px auto;
   transition: 0s linear 0.2s, opacity 0.2s linear;
 }
 
@@ -112,5 +112,18 @@
     margin-left: 16px;
     margin-right: 16px;
     padding-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .newscardlist__title {
+    font-size: 1.5rem;
+    padding-bottom: 40px;
+  }
+  .newscardlist__button {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    width: 250px;
+    max-width: 250px;
   }
 }
