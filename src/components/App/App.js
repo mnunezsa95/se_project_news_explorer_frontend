@@ -12,7 +12,6 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import "./App.css";
 import { getNewsArticles } from "../../utils/api";
-import { findDOMNode } from "react-dom";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -42,13 +41,13 @@ function App() {
 
   const handleSignOut = () => {
     // delete token
+    //! add redirection at some point
     setCurrentUser(false);
     setIsLoggedIn(false);
   };
 
   const handleNewsArticleSearch = (userInput) => {
     setIsPageLoading(true);
-    console.log(userInput);
     const searchNews = getNewsArticles(userInput);
     searchNews
       .then((data) => {
@@ -59,13 +58,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-
-  //Logging data for now
-  useEffect(() => {
-    getNewsArticles()
-      .then((data) => setSearchResults(data))
-      .catch((error) => console.error(error));
-  }, []);
 
   // Close modal via escape key
   useEffect(() => {
@@ -88,7 +80,7 @@ function App() {
             onLogout={handleSignOut}
             onSubmit={handleNewsArticleSearch}
           />
-          <Main isLoggedIn={isLoggedIn} />
+          <Main isLoggedIn={isLoggedIn} searchResults={searchResults} />
           <About />
         </Route>
         <Route path="/saved-news">

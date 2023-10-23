@@ -3,11 +3,11 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import Loading from "../Loading/Loading";
 import "./Main.css";
 
-function Main({ isLoggedIn }) {
+function Main({ isLoggedIn, searchResults }) {
   return (
     <>
       <Loading />
-      <NewsCardList isLoggedIn={isLoggedIn} />
+      <NewsCardList isLoggedIn={isLoggedIn} searchResults={searchResults} />
     </>
   );
 }
