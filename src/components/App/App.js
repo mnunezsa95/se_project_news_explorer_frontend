@@ -24,8 +24,12 @@ function App() {
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
 
-  //! Placeholder
-  getNewsArticles();
+  //Logging data for now
+  useEffect(() => {
+    getNewsArticles()
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }, []);
 
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
     console.log(emailValue, passwordValue, usernameValue);
