@@ -12,24 +12,21 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import "./App.css";
 import { getNewsArticles } from "../../utils/api";
+import { findDOMNode } from "react-dom";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [activeModal, setActiveModal] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isModalLoading, setIsModalLoading] = useState(false);
+  const [isPageLoading, setIsPageLoading] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
   const [token, setToken] = React.useState("");
 
   const handleRegisterModal = () => setActiveModal("register");
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
-
-  //Logging data for now
-  useEffect(() => {
-    getNewsArticles()
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-  }, []);
 
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
     console.log(emailValue, passwordValue, usernameValue);
@@ -49,6 +46,27 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  const handleNewsArticleSearch = (userInput) => {
+    setIsPageLoading(true);
+    console.log(userInput);
+    const searchNews = getNewsArticles(userInput);
+    searchNews
+      .then((data) => {
+        setIsSearching(true);
+        setSearchResults(data.articles);
+        console.log(data.articles);
+        setIsPageLoading(false);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //Logging data for now
+  useEffect(() => {
+    getNewsArticles()
+      .then((data) => setSearchResults(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   // Close modal via escape key
   useEffect(() => {
     if (!activeModal) return;
@@ -63,7 +81,7 @@ function App() {
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Header isLoggedIn={isLoggedIn} onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} />
+          <Header isLoggedIn={isLoggedIn} onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} onSubmit={handleNewsArticleSearch} />
           <Main isLoggedIn={isLoggedIn} />
           <About />
         </Route>
@@ -79,7 +97,7 @@ function App() {
           onLoginModal={handleLoginModal}
           onRegisterModal={handleRegisterModal}
           handleCloseModal={handleCloseModal}
-          isLoading={isLoading}
+          isModalLoading={isModalLoading}
           onSubmit={handleLogin}
         />
       )}
@@ -89,7 +107,7 @@ function App() {
           onRegisterModal={handleRegisterModal}
           onLoginModal={handleLoginModal}
           handleCloseModal={handleCloseModal}
-          isLoading={isLoading}
+          isModalLoading={isModalLoading}
           onSubmit={handleRegistration}
         />
       )}

@@ -4,7 +4,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MobileNav from "../MobileNav/MobileNav";
 import "./Header.css";
 
-function Header({ isLoggedIn, onLoginModal }) {
+function Header({ isLoggedIn, onLoginModal, onSubmit }) {
   return (
     <header className="header" id="header">
       <Navigation isLoggedIn={isLoggedIn} onLoginModal={onLoginModal} />
@@ -12,7 +12,7 @@ function Header({ isLoggedIn, onLoginModal }) {
       <div className="header__container">
         <h1 className="header__title">What's going on in the world?</h1>
         <p className="header__subtitle">Find the lastest news on any topic and save them in your personal account</p>
-        <SearchForm />
+        <SearchForm onSubmit={onSubmit} />
       </div>
     </header>
   );

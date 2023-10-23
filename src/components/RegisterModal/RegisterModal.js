@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./RegisterModal.css";
 
-function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isLoading }) {
+function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isModalLoading }) {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [usernameValue, setUsernameValue] = useState("");
@@ -21,7 +21,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isLoa
       isOpen={isOpen}
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
-      buttonText={isLoading ? "Signing up..." : "Sign up"}
+      buttonText={isModalLoading ? "Signing up..." : "Sign up"}
       hasRedirectButton={true}
       redirectButtonText=" Sign in"
       redirectButtonClick={onLoginModal}
