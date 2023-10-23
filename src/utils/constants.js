@@ -1,5 +1,6 @@
 export const BASE_URL = "https://newsapi.org/v2/everything?";
 export const apiKey = "4bfe57c6a85a467cbe63a01fcc5e32fc";
+export const lang = navigator.language.split("-");
 
 function getcurrentDate() {
   const date = new Date();
