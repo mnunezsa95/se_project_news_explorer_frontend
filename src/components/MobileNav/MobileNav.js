@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./MobileNav.css";
 
-function MobileNav({ isLoggedIn, inSavedNews, onLoginModal }) {
+function MobileNav({ isLoggedIn, inSavedNews, onLoginModal, onLogout }) {
   const [mobileMenu, setMobileMenu] = useState(false);
   const handleMenuToggle = () => setMobileMenu(!mobileMenu);
 
@@ -27,7 +27,9 @@ function MobileNav({ isLoggedIn, inSavedNews, onLoginModal }) {
               </Link>
             )}
             {isLoggedIn ? (
-              <button className="mobile__nav-button mobile__nav-button-logout">Marlon</button>
+              <button className="mobile__nav-button mobile__nav-button-logout" onClick={onLogout}>
+                Marlon
+              </button>
             ) : (
               <button className="mobile__nav-button mobile__nav-button-signin" onClick={onLoginModal}>
                 Sign in

@@ -81,12 +81,18 @@ function App() {
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Header isLoggedIn={isLoggedIn} onLoginModal={handleLoginModal} onRegisterModal={handleRegisterModal} onSubmit={handleNewsArticleSearch} />
+          <Header
+            isLoggedIn={isLoggedIn}
+            onLoginModal={handleLoginModal}
+            onRegisterModal={handleRegisterModal}
+            onLogout={handleSignOut}
+            onSubmit={handleNewsArticleSearch}
+          />
           <Main isLoggedIn={isLoggedIn} />
           <About />
         </Route>
         <Route path="/saved-news">
-          <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} />
+          <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />
           <SavedNews isLoggedIn={isLoggedIn} />
         </Route>
       </Switch>

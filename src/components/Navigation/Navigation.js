@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation({ isLoggedIn, onLoginModal, inSavedNews }) {
+function Navigation({ isLoggedIn, onLoginModal, onLogout, inSavedNews }) {
   return (
     <div className="nav">
       <div className="nav__left-container">
@@ -19,7 +19,9 @@ function Navigation({ isLoggedIn, onLoginModal, inSavedNews }) {
             </Link>
           )}
           {isLoggedIn ? (
-            <button className={`nav__button nav__button-logout ${inSavedNews && "nav__button-saved-news nav__button-logout-saved-news"}`}>Marlon</button>
+            <button className={`nav__button nav__button-logout ${inSavedNews && "nav__button-saved-news nav__button-logout-saved-news"}`} onClick={onLogout}>
+              Marlon
+            </button>
           ) : (
             <button className="nav__button nav__button-signin" onClick={onLoginModal}>
               Sign in
