@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Roboto Slab";
-  src: url("../../../public/vendor/fonts/roboto-slab-400-regular.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../../../public/vendor/fonts/roboto-400-regular.woff") format("woff");
-}
-
 .newscardlist__section {
   background-color: rgba(245, 246, 247, 1);
   display: flex;
@@ -19,7 +9,7 @@
   margin-left: calc(10% - 40px);
   margin-right: calc(10% - 40px);
   align-self: baseline;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab 400";
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
@@ -50,7 +40,7 @@
   padding: 0;
   color: #1a1b22;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto 400", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.33;

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Roboto Slab 400";
+  src: url("../vendor/fonts/roboto-slab-400-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto Slab 700";
+  src: url("../vendor/fonts/roboto-slab-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto 400";
+  src: url("../vendor/fonts/roboto-400-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto 500";
+  src: url("../vendor/fonts/roboto-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto 700";
+  src: url("../vendor/fonts/roboto-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto 900";
+  src: url("../vendor/fonts/roboto-900.woff") format("woff");
+}
