@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
-import About from "../About/About";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
@@ -53,7 +52,6 @@ function App() {
       .then((data) => {
         setIsSearching(true);
         setSearchResults(data.articles);
-        console.log(data.articles);
         setIsPageLoading(false);
       })
       .catch((err) => console.log(err));
@@ -80,8 +78,7 @@ function App() {
             onLogout={handleSignOut}
             onSubmit={handleNewsArticleSearch}
           />
-          <Main isLoggedIn={isLoggedIn} searchResults={searchResults} />
-          <About />
+          <Main isLoggedIn={isLoggedIn} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
         </Route>
         <Route path="/saved-news">
           <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />

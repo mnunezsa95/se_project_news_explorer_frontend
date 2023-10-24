@@ -1,13 +1,18 @@
 import React from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Loading from "../Loading/Loading";
+import About from "../About/About";
 import "./Main.css";
 
-function Main({ isLoggedIn, searchResults }) {
+function Main({ isLoggedIn, searchResults, isSearching, isPageLoading }) {
   return (
     <>
-      <Loading />
-      <NewsCardList isLoggedIn={isLoggedIn} searchResults={searchResults} />
+      {isPageLoading === false ? (
+        <NewsCardList isLoggedIn={isLoggedIn} searchResults={searchResults} isPageLoading={isPageLoading} isSearching={isSearching} />
+      ) : (
+        <Loading />
+      )}
+      <About />
     </>
   );
 }

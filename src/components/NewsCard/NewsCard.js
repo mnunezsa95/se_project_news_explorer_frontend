@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { formatSearchResDate } from "../../utils/constants";
 import "./NewsCard.css";
-import test_image from "../../images/test_image.jpg";
 
 function NewsCard({ isLoggedIn, searchRes }) {
   const [showIcon, setShowIcon] = useState(false);
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
+
+  const formattedDate = formatSearchResDate(searchRes.publishedAt);
 
   return (
     <div className="newscard__container">
@@ -22,10 +24,10 @@ function NewsCard({ isLoggedIn, searchRes }) {
       </div>
       <img className="newscard__image" src={searchRes.urlToImage} alt={searchRes.title} />
       <div className="newscard__info-container">
-        <p className="newscard__info-date">${searchRes.publishedAt}</p>
-        <h3 className="newscard__info-title">${searchRes.title}</h3>
-        <p className="newscard__info-text">${searchRes.description}</p>
-        <p className="newscard__info-publisher">${searchRes.source.name}</p>
+        <p className="newscard__info-date">{formattedDate}</p>
+        <h3 className="newscard__info-title">{searchRes.title}</h3>
+        <p className="newscard__info-text">{searchRes.description}</p>
+        <p className="newscard__info-publisher">{searchRes.source.name}</p>
       </div>
     </div>
   );

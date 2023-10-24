@@ -1,9 +1,12 @@
 import React from "react";
-import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
+import "./NewsCardList.css";
+import NothingFound from "../NothingFound/NothingFound";
 
-function NewsCardList({ isLoggedIn, searchResults }) {
-  return (
+function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching }) {
+  return !isPageLoading && isSearching && searchResults.length === 0 ? (
+    <NothingFound />
+  ) : (
     <section className="newscardlist__section">
       <h2 className="newscardlist__title">Search results</h2>
       <div className="newscardlist__container">

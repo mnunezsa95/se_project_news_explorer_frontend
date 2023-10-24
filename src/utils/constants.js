@@ -29,3 +29,7 @@ export const checkServerResponse = (res) => {
   if (!res.ok) return Promise.reject(`An error with the Status Code ${res.status} has occurred`);
   return res.json();
 };
+
+export const formatSearchResDate = (date) => {
+  return new Date(date).toLocaleString("default", { year: "numeric", month: "long", day: "numeric" });
+};
