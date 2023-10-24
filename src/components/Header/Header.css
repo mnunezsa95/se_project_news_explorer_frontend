@@ -81,13 +81,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
-  .header {
-    height: 485px;
-  }
-}
-
-@media screen and (max-width: 306px) {
+@media screen and (max-width: 325px) {
   .header {
     height: 510px;
   }

@@ -40,7 +40,7 @@
   padding: 0;
   color: #1a1b22;
   text-align: center;
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto 500", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.33;
@@ -115,5 +115,14 @@
     margin-bottom: 20px;
     width: 250px;
     max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .newscardlist__button {
+    font-size: 0.875rem;
+    margin-bottom: 18px;
+    width: 200px;
+    max-width: 200px;
   }
 }

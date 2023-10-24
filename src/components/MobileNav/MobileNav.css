@@ -103,7 +103,6 @@
   .mobile__nav {
     display: none;
   }
-
   .mobile__nav-menu {
     display: none;
   }
@@ -115,13 +114,9 @@
   }
   .mobile__nav-button-signin {
     padding: 16px 100px;
-    border: 1px solid white;
-    border-radius: 100px;
   }
   .mobile__nav-button-logout {
     padding: 16px 100px;
-    border: 1px solid white;
-    border-radius: 100px;
   }
 }
 
@@ -131,12 +126,17 @@
   }
   .mobile__nav-button-signin {
     padding: 16px 90px;
-    border: 1px solid white;
-    border-radius: 100px;
   }
   .mobile__nav-button-logout {
     padding: 16px 90px;
-    border: 1px solid white;
-    border-radius: 100px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .mobile__nav-button-signin {
+    padding: 12px 60px;
+  }
+  .mobile__nav-button-logout {
+    padding: 12px 60px;
   }
 }
