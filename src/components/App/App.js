@@ -1,6 +1,11 @@
+// react imports
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
-import Preloader from "../Preloader/Preloader";
+import { Route, Switch, useLocation } from "react-router-dom";
+
+// css styles
+import "./App.css";
+
+// components
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Main from "../Main/Main";
@@ -9,19 +14,19 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
-import "./App.css";
 import { getNewsArticles } from "../../utils/api";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isModalLoading, setIsModalLoading] = useState(false);
+  const [isModalLoading, setIsModalLoading] = useState(false); //! Will use setIsModalLoading for login/register modals
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [token, setToken] = React.useState("");
+  // const [token, setToken] = React.useState(""); //! Will use for authentication
 
+  // functions
   const handleRegisterModal = () => setActiveModal("register");
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
@@ -78,7 +83,7 @@ function App() {
             onLogout={handleSignOut}
             onSubmit={handleNewsArticleSearch}
           />
-          <Main isLoggedIn={isLoggedIn} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
+          <Main isLoggedIn={isLoggedIn} inSavedNews={true} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
         </Route>
         <Route path="/saved-news">
           <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />

@@ -4,12 +4,12 @@ import Loading from "../Loading/Loading";
 import About from "../About/About";
 import "./Main.css";
 
-function Main({ isLoggedIn, searchResults, isSearching, isPageLoading }) {
+function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNews }) {
   console.log(searchResults);
   return (
     <>
       {isPageLoading === false ? (
-        <NewsCardList isLoggedIn={isLoggedIn} searchResults={searchResults} isPageLoading={isPageLoading} isSearching={isSearching} />
+        <NewsCardList isLoggedIn={isLoggedIn} searchResults={searchResults} isPageLoading={isPageLoading} isSearching={isSearching} inSavedNews={inSavedNews} />
       ) : (
         <Loading />
       )}
