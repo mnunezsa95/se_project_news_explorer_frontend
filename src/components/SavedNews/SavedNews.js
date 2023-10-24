@@ -2,14 +2,13 @@ import React from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
 
-function SavedNews({ isLoggedIn }) {
+//! Will need to add some kind of filter so only "saved" items appear
+function SavedNews({ isLoggedIn, isSearching, searchResults, isPageLoading }) {
   return (
     <div className="saved__news-container">
-      <NewsCard isLoggedIn={isLoggedIn} />
-      <NewsCard isLoggedIn={isLoggedIn} />
-      <NewsCard isLoggedIn={isLoggedIn} />
-      <NewsCard isLoggedIn={isLoggedIn} />
-      <NewsCard isLoggedIn={isLoggedIn} />
+      {searchResults.map((searchRes) => {
+        return <NewsCard isLoggedIn={isLoggedIn} isSearching={isSearching} searchRes={searchRes} isPageLoading={isPageLoading} />;
+      })}
     </div>
   );
 }
