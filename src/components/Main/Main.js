@@ -5,7 +5,6 @@ import About from "../About/About";
 import "./Main.css";
 
 function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNews }) {
-  console.log(searchResults);
   return (
     <>
       {isPageLoading === false ? (

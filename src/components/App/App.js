@@ -1,6 +1,6 @@
 // react imports
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // css styles
 import "./App.css";
@@ -17,6 +17,9 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import { getNewsArticles } from "../../utils/api";
 
 function App() {
+  // variables
+
+  // states
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isModalLoading, setIsModalLoading] = useState(false); //! Will use setIsModalLoading for login/register modals
@@ -62,7 +65,7 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  // Close modal via escape key
+  // effects
   useEffect(() => {
     if (!activeModal) return;
     const handleEscClose = (evt) => {
@@ -83,11 +86,11 @@ function App() {
             onLogout={handleSignOut}
             onSubmit={handleNewsArticleSearch}
           />
-          <Main isLoggedIn={isLoggedIn} inSavedNews={true} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
+          <Main isLoggedIn={isLoggedIn} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
         </Route>
         <Route path="/saved-news">
           <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />
-          <SavedNews isLoggedIn={isLoggedIn} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
+          <SavedNews isLoggedIn={isLoggedIn} searchResults={searchResults} />
         </Route>
       </Switch>
       <Footer />
