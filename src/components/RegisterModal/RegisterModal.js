@@ -6,9 +6,25 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [usernameValue, setUsernameValue] = useState("");
-  const handleEmailChange = (evt) => setEmailValue(evt.target.value);
-  const handlePasswordChange = (evt) => setPasswordValue(evt.target.value);
-  const handleUsernameChange = (evt) => setUsernameValue(evt.target.value);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [isUsernameValid, setIsUsernameValid] = useState(false);
+
+  const handleEmailChange = (evt) => {
+    setIsEmailValid(evt.target.validity.valid);
+    setEmailValue(evt.target.value);
+  };
+  const handlePasswordChange = (evt) => {
+    setIsPasswordValid(evt.target.validity.valid);
+    setPasswordValue(evt.target.value);
+  };
+  const handleUsernameChange = (evt) => {
+    setIsUsernameValid(evt.target.validity.valid);
+    setUsernameValue(evt.target.value);
+  };
+
+  const isFormValid = isEmailValid && isPasswordValid && isUsernameValid;
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onSubmit({ emailValue, passwordValue, usernameValue });
@@ -22,9 +38,6 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
       buttonText={isModalLoading ? "Signing up..." : "Sign up"}
-      hasRedirectButton={true}
-      redirectButtonText=" Sign in"
-      redirectButtonClick={onLoginModal}
     >
       <div>
         <label className="form__label" htmlFor="email">
@@ -59,6 +72,12 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
         </label>
         <span className="form__error-disabled">This email is not available</span>
       </div>
+      <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
+        Sign up
+      </button>
+      <button className="modal__redirect-button" onClick={onLoginModal} type="button">
+        <span className="modal__redirect-button-text-alt">or</span> Sign in
+      </button>
     </PopupWithForm>
   );
 }

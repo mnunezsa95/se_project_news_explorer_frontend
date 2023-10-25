@@ -33,10 +33,6 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
       buttonText={isModalLoading ? "Signing in..." : "Sign in"}
-      hasRedirectButton={true}
-      redirectButtonText=" Sign up"
-      redirectButtonClick={onRegisterModal}
-      isFormValid={isFormValid}
     >
       <div>
         <label className="form__label" htmlFor="email">
@@ -59,6 +55,12 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
           />
         </label>
       </div>
+      <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
+        Sign in
+      </button>
+      <button className="modal__redirect-button" onClick={onRegisterModal} type="button">
+        <span className="modal__redirect-button-text-alt">or</span> Sign up
+      </button>
     </PopupWithForm>
   );
 }
