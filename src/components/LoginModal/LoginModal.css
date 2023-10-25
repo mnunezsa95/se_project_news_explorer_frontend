@@ -20,12 +20,13 @@
   outline: none;
 }
 
-.form__input-error-disabled {
-  display: none;
+.form__error-login-disabled {
+  visibility: hidden;
+  padding-top: 3px;
 }
 
-.form__input-error-active {
-  display: block;
+.form__error-login {
+  visibility: visible;
   text-align: left;
   color: #f00;
   font-family: "Inter", sans-serif;

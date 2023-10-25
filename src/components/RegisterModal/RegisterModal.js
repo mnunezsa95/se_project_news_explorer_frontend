@@ -70,7 +70,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
             onChange={handleUsernameChange}
           />
         </label>
-        <span className="form__error-disabled">This email is not available</span>
+        {/* <span className="form__error-active-register">This email is not available</span> */}
       </div>
       <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
         Sign up
