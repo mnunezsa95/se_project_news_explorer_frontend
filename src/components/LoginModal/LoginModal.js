@@ -4,9 +4,21 @@ import "./LoginModal.css";
 
 function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isModalLoading }) {
   const [emailValue, setEmailValue] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
-  const handleEmailChange = (evt) => setEmailValue(evt.target.value);
-  const handlePasswordChange = (evt) => setPasswordValue(evt.target.value);
+
+  const handleEmailChange = (evt) => {
+    setIsEmailValid(evt.target.validity.valid);
+    setEmailValue(evt.target.value);
+  };
+
+  const handlePasswordChange = (evt) => {
+    setIsPasswordValid(evt.target.validity.valid);
+    setPasswordValue(evt.target.value);
+  };
+
+  const isFormValid = isEmailValid && isPasswordValid;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -24,6 +36,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
       hasRedirectButton={true}
       redirectButtonText=" Sign up"
       redirectButtonClick={onRegisterModal}
+      isFormValid={isFormValid}
     >
       <div>
         <label className="form__label" htmlFor="email">

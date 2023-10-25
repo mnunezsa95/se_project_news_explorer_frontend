@@ -10,6 +10,7 @@ function NewsCard({ isLoggedIn, searchRes }) {
   const handleHideIcon = () => setShowIcon(false);
   const formattedDate = formatSearchResDate(searchRes.publishedAt);
 
+  //! Will need to change location === "/saved-news" to some kind of state once save logic is implemented
   return (
     <div className="newscard__container">
       {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">Yellowstone</div> : ""}

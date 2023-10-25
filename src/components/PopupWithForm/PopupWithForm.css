@@ -58,9 +58,9 @@
   font-family: "Roboto 500", sans-serif;
   font-size: 1.5rem;
   line-height: 1.2;
-  background-color: rgba(230, 232, 235, 1);
+  background-color: rgba(47, 113, 229, 1);
+  color: white;
   font-weight: 500;
-  color: rgba(182, 188, 191, 1);
   border-color: none;
   padding: 20px 114px;
   cursor: pointer;
@@ -69,9 +69,9 @@
   margin-top: 39px;
 }
 
-.modal__submit-button-active {
-  background-color: rgba(47, 113, 229, 1);
-  color: white;
+.modal__submit-button:disabled {
+  background-color: rgba(230, 232, 235, 1);
+  color: rgba(182, 188, 191, 1);
 }
 
 .modal__redirect-button {

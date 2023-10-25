@@ -4,6 +4,11 @@ import "./NewsCardList.css";
 import NothingFound from "../NothingFound/NothingFound";
 
 function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, inSavedNews }) {
+  // initial state with value of 3
+  // slice() method for arrays on searchResults from (0, 3)
+  // click event handler add 3
+  // reset value useEffect() when search results triggers
+
   return !isPageLoading && isSearching && searchResults.length === 0 ? (
     <NothingFound />
   ) : !isPageLoading && isSearching && searchResults.length >= 0 ? (

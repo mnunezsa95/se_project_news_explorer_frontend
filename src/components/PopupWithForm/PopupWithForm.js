@@ -1,7 +1,19 @@
 import React from "react";
 import "./PopupWithForm.css";
 
-function PopupWithForm({ children, modalName, title, buttonText, onClose, isOpen, onSubmit, hasRedirectButton, redirectButtonText, redirectButtonClick }) {
+function PopupWithForm({
+  children,
+  modalName,
+  title,
+  buttonText,
+  onClose,
+  isOpen,
+  onSubmit,
+  hasRedirectButton,
+  redirectButtonText,
+  redirectButtonClick,
+  isFormValid,
+}) {
   return (
     <div className={`modal modal__type-${modalName}`}>
       <div className="modal__content">
@@ -9,7 +21,7 @@ function PopupWithForm({ children, modalName, title, buttonText, onClose, isOpen
         <button className="modal__close-button " type="button" onClick={onClose} />
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button className="modal__submit-button" type="submit">
+          <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
             {buttonText}
           </button>
           {hasRedirectButton && (
