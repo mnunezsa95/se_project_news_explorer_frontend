@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import NothingFound from "../NothingFound/NothingFound";
 
 function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, inSavedNews }) {
-  // initial state with value of 3
-  // slice() method for arrays on searchResults from (0, 3)
-  // click event handler add 3
-  // reset value useEffect() when search results triggers
+  let [cardView, setCardView] = useState(3);
+  const handleSearchRes = () => setCardView(cardView + 3);
+  //MAYBE reset value useEffect() when search results triggers
 
   return !isPageLoading && isSearching && searchResults.length === 0 ? (
     <NothingFound />
-  ) : !isPageLoading && isSearching && searchResults.length >= 0 ? (
+  ) : !isPageLoading && isSearching && searchResults.length >= 3 ? (
     <section className="newscardlist__section">
       <h2 className="newscardlist__title">Search results</h2>
       <div className="newscardlist__container">
-        {searchResults.map((searchRes, index) => (
+        {searchResults.slice(0, cardView).map((searchRes, index) => (
           <NewsCard key={index} searchRes={searchRes} isLoggedIn={isLoggedIn} inSavedNews={inSavedNews} />
         ))}
       </div>
-      <button className="newscardlist__button">Show more</button>
+      <button className="newscardlist__button" type="button" onClick={handleSearchRes}>
+        Show more
+      </button>
     </section>
   ) : (
     ""
