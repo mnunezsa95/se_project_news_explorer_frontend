@@ -7,11 +7,13 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [validationError, setValidationError] = useState("");
   const isFormValid = isEmailValid && isPasswordValid;
 
   const handleEmailChange = (evt) => {
     setIsEmailValid(evt.target.validity.valid);
     setEmailValue(evt.target.value);
+    setValidationError(evt.target.validationMessage);
   };
 
   const handlePasswordChange = (evt) => {
@@ -38,7 +40,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
           Email
           <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" value={emailValue} onChange={handleEmailChange} />
         </label>
-        {emailValue !== "" && <span className={!isEmailValid ? "form__error-login" : "form__error-login-disabled"}>Invalid email address</span>}
+        {emailValue !== "" && <span className={!isEmailValid ? "form__error-login" : "form__error-login-disabled"}>{validationError}</span>}
         <label className="form__label" htmlFor="password">
           Password
           <input
