@@ -43,6 +43,15 @@
   border: none;
   cursor: pointer;
   color: white;
+  padding: 0;
+}
+
+.nav__button-active {
+  border-bottom: 3px solid white;
+}
+
+.nav__button-active-saved-news {
+  border-bottom: 3px solid black;
 }
 
 .nav__button-signin {
@@ -96,6 +105,7 @@
   .nav__button {
     font-size: 1rem;
   }
+
   .nav__button-signin {
     max-width: 140px;
   }
@@ -118,6 +128,7 @@
   .nav__button {
     font-size: 0.875rem;
   }
+
   .nav__button-signin {
     max-width: 125px;
   }
