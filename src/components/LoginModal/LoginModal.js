@@ -13,7 +13,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
   const handleEmailChange = (evt) => {
     setIsEmailValid(evt.target.validity.valid);
     setEmailValue(evt.target.value);
-    setValidationError(evt.target.validationMessage);
+    if (evt.target.validity.typeMismatch) setValidationError("Invalid email address");
   };
 
   const handlePasswordChange = (evt) => {
