@@ -17,8 +17,6 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import { getNewsArticles } from "../../utils/api";
 
 function App() {
-  // variables
-
   // states
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,15 +33,19 @@ function App() {
   const handleCloseModal = () => setActiveModal(null);
 
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
+    // setIsModalLoading(true); //! To use when auth api call is set up
     console.log(emailValue, passwordValue, usernameValue);
     handleCloseModal();
     setActiveModal("success");
+    setIsModalLoading(false);
   };
 
   const handleLogin = ({ emailValue, passwordValue }) => {
+    // setIsModalLoading(true); //! To use when auth api call is set up
     console.log(emailValue, passwordValue);
     handleCloseModal();
     setIsLoggedIn(true);
+    setIsModalLoading(false);
   };
 
   const handleSignOut = () => {

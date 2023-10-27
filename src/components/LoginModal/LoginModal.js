@@ -27,14 +27,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
   };
 
   return (
-    <PopupWithForm
-      title="Sign in"
-      modalName="Login"
-      isOpen={isOpen}
-      onClose={handleCloseModal}
-      onSubmit={handleSubmit}
-      buttonText={isModalLoading ? "Signing in..." : "Sign in"}
-    >
+    <PopupWithForm title="Sign in" modalName="Login" isOpen={isOpen} onClose={handleCloseModal} onSubmit={handleSubmit}>
       <div>
         <label className="form__label" htmlFor="email">
           Email
@@ -57,7 +50,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
         </label>
       </div>
       <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
-        Sign in
+        {isModalLoading ? "Signing in..." : "Sign in"}
       </button>
       <button className="modal__redirect-button" onClick={onRegisterModal} type="button">
         <span className="modal__redirect-button-text-alt">or</span> Sign up

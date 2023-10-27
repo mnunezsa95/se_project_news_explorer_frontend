@@ -6,7 +6,6 @@ import NothingFound from "../NothingFound/NothingFound";
 function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, inSavedNews }) {
   let [cardView, setCardView] = useState(3);
   const handleSearchRes = () => setCardView(cardView + 3);
-  //MAYBE reset value useEffect() when search results triggers
 
   return !isPageLoading && isSearching && searchResults.length === 0 ? (
     <NothingFound />
