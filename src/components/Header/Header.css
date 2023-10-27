@@ -83,12 +83,15 @@
 
 @media screen and (max-width: 325px) {
   .header {
-    height: 510px;
+    height: 530px;
   }
 }
 
 @media screen and (max-width: 250px) {
   .header {
     height: 530px;
+  }
+  .header__title {
+    padding: 25px 0 28px 0;
   }
 }

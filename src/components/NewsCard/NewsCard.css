@@ -110,7 +110,6 @@
   font-weight: 400;
   line-height: 1.15;
   color: rgba(26, 27, 34, 1);
-  /* max-width: 352px; */
   overflow: hidden;
 }
 
@@ -179,13 +178,9 @@
 }
 
 @media screen and (max-width: 425px) {
-  .newscard__container {
-    max-width: 323px;
-  }
-
   .newscard__image {
     height: 196px;
-    width: 293px;
+    max-width: 261px;
   }
 
   .newscard__info-container {
@@ -203,12 +198,12 @@
 
 @media screen and (max-width: 295px) {
   .newscard__container {
-    max-width: 240px;
+    max-width: 225px;
   }
 
   .newscard__image {
     height: 150px;
-    width: 240px;
+    width: 225px;
   }
 
   .newscard__info-date {
