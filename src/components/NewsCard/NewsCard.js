@@ -3,7 +3,7 @@ import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, searchRes }) {
+function NewsCard({ isLoggedIn, searchRes, saveNewsArticle, isSaved }) {
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
@@ -11,9 +11,8 @@ function NewsCard({ isLoggedIn, searchRes }) {
   const formattedDate = formatSearchResDate(searchRes.publishedAt);
 
   //! Will need to change location === "/saved-news" to some kind of state once save logic is implemented
-
-  // When clikc on save icon have an array in a state variable in app, add url to that array (unless in there)
-  // when rendering each card, check if in list
+  const handleSaveClick = () => saveNewsArticle(searchRes);
+  console.log(isSaved);
 
   return (
     <div className="newscard__container">
@@ -29,7 +28,7 @@ function NewsCard({ isLoggedIn, searchRes }) {
         {isLoggedIn && location === "/saved-news" ? (
           <button className="newscard__delete-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon}></button>
         ) : (
-          <button className="newscard__bookmark-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon}></button>
+          <button className="newscard__bookmark-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon} onClick={handleSaveClick}></button>
         )}
       </div>
       <img className="newscard__image" src={searchRes.urlToImage || searchRes.image} alt={searchRes.description} />

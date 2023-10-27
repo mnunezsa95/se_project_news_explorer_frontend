@@ -4,11 +4,19 @@ import Loading from "../Loading/Loading";
 import About from "../About/About";
 import "./Main.css";
 
-function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNews }) {
+function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNews, savedNews, saveNewsArticle }) {
   return (
     <>
       {isPageLoading === false ? (
-        <NewsCardList isLoggedIn={isLoggedIn} searchResults={searchResults} isPageLoading={isPageLoading} isSearching={isSearching} inSavedNews={inSavedNews} />
+        <NewsCardList
+          isLoggedIn={isLoggedIn}
+          searchResults={searchResults}
+          isPageLoading={isPageLoading}
+          isSearching={isSearching}
+          inSavedNews={inSavedNews}
+          savedNews={savedNews}
+          saveNewsArticle={saveNewsArticle}
+        />
       ) : (
         <Loading />
       )}

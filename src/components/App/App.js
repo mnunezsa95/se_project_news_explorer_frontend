@@ -25,6 +25,7 @@ function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [savedNews, setSavedNews] = useState([]);
   // const [token, setToken] = React.useState(""); //! Will use for authentication
 
   // functions
@@ -67,6 +68,12 @@ function App() {
       .catch((err) => console.error(err));
   };
 
+  console.log(savedNews);
+
+  const saveNewsArticle = (newsArticle) => {
+    setSavedNews([...savedNews, newsArticle]);
+  };
+
   // effects
   useEffect(() => {
     if (!activeModal) return;
@@ -88,7 +95,14 @@ function App() {
             onLogout={handleSignOut}
             onSubmit={handleNewsArticleSearch}
           />
-          <Main isLoggedIn={isLoggedIn} isSearching={isSearching} searchResults={searchResults} isPageLoading={isPageLoading} />
+          <Main
+            isLoggedIn={isLoggedIn}
+            isSearching={isSearching}
+            searchResults={searchResults}
+            isPageLoading={isPageLoading}
+            savedNews={savedNews}
+            saveNewsArticle={saveNewsArticle}
+          />
         </Route>
         <Route path="/saved-news">
           <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />
