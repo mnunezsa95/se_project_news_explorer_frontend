@@ -17,7 +17,7 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
       <div className="newscard__bookmark-section">
         {!isLoggedIn && !isSaved && showIcon ? (
           <p className="newscard__bookmark-additional">Sign in to save articles</p>
-        ) : isSaved && showIcon ? (
+        ) : (isSaved && isLoggedIn && showIcon) || (location === "/saved-news" && showIcon) ? (
           <p className="newscard__bookmark-additional">Remove from saved</p>
         ) : (
           ""
@@ -30,6 +30,7 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
             onMouseOver={handleShowIcon}
             onMouseOut={handleHideIcon}
             onClick={handleSaveClick}
+            disabled={!isLoggedIn}
           ></button>
         )}
       </div>
