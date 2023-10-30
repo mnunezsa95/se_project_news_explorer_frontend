@@ -77,6 +77,20 @@
   background-color: transparent;
   color: white;
   border: none;
+  padding: 0;
+}
+
+.mobile__nav-button-active {
+  font-family: "Roboto 500", sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.33;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0;
+  height: 25px;
 }
 
 .mobile__nav-button-saved-news {
@@ -84,16 +98,26 @@
 }
 
 .mobile__nav-button-signin {
+  font-family: "Roboto 500", sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.33;
+  background-color: transparent;
+  color: white;
+  border: none;
   padding: 16px 117px;
   border: 1px solid white;
   border-radius: 100px;
 }
 
-.mobile__nav-button-signin-saved-news {
-  border: 1px solid black;
-}
-
 .mobile__nav-button-logout {
+  font-family: "Roboto 500", sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.33;
+  background-color: transparent;
+  color: white;
+  border: none;
   padding: 16px 117px;
   border: 1px solid white;
   border-radius: 100px;
@@ -112,11 +136,18 @@
   .mobile__nav-button {
     font-size: 1rem;
   }
+
+  .mobile__nav-button-active {
+    font-size: 1rem;
+  }
+
   .mobile__nav-button-signin {
+    font-size: 1rem;
     padding: 16px 100px;
   }
   .mobile__nav-button-logout {
     padding: 16px 100px;
+    font-size: 1rem;
   }
 }
 
@@ -124,10 +155,17 @@
   .mobile__nav-button {
     font-size: 0.875rem;
   }
+
+  .mobile__nav-button-active {
+    font-size: 0.875rem;
+  }
+
   .mobile__nav-button-signin {
+    font-size: 0.875rem;
     padding: 16px 90px;
   }
   .mobile__nav-button-logout {
+    font-size: 0.875rem;
     padding: 16px 90px;
   }
 }

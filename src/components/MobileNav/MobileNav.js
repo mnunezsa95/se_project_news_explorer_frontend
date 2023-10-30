@@ -28,19 +28,19 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
         <div className="mobile__nav-menu">
           <div className="mobile__nav-menu-container">
             <Link to="/">
-              <button className="mobile__nav-button">Home</button>
+              <button className={currentLocation === "/" ? "mobile__nav-button-active" : "mobile__nav-button"}>Home</button>
             </Link>
             {isLoggedIn && (
               <Link to="/saved-news">
-                <button className="mobile__nav-button">Saved Articles</button>
+                <button className={currentLocation === "/saved-news" ? "mobile__nav-button-active" : "mobile__nav-button"}>Saved Articles</button>
               </Link>
             )}
             {isLoggedIn ? (
-              <button className="mobile__nav-button mobile__nav-button-logout" onClick={onLogout}>
+              <button className="mobile__nav-button-logout" onClick={onLogout}>
                 Marlon
               </button>
             ) : (
-              <button className="mobile__nav-button mobile__nav-button-signin" onClick={onLoginModal}>
+              <button className="mobile__nav-button-signin" onClick={onLoginModal}>
                 Sign in
               </button>
             )}
