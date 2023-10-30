@@ -68,11 +68,8 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  console.log(savedNews);
-
-  const saveNewsArticle = (newsArticle) => {
-    setSavedNews([...savedNews, newsArticle]);
-  };
+  const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
+  const unsaveNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
   // effects
   useEffect(() => {
@@ -102,6 +99,7 @@ function App() {
             isPageLoading={isPageLoading}
             savedNews={savedNews}
             saveNewsArticle={saveNewsArticle}
+            unsaveNewsArticle={unsaveNewsArticle}
           />
         </Route>
         <Route path="/saved-news">

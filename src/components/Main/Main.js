@@ -4,7 +4,7 @@ import Loading from "../Loading/Loading";
 import About from "../About/About";
 import "./Main.css";
 
-function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNews, savedNews, saveNewsArticle }) {
+function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNews, savedNews, saveNewsArticle, unsaveNewsArticle }) {
   return (
     <>
       {isPageLoading === false ? (
@@ -13,9 +13,9 @@ function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, inSavedNe
           searchResults={searchResults}
           isPageLoading={isPageLoading}
           isSearching={isSearching}
-          inSavedNews={inSavedNews}
           savedNews={savedNews}
           saveNewsArticle={saveNewsArticle}
+          unsaveNewsArticle={unsaveNewsArticle}
         />
       ) : (
         <Loading />

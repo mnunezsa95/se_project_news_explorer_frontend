@@ -3,17 +3,13 @@ import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, searchRes, saveNewsArticle, isSaved }) {
+function NewsCard({ isLoggedIn, searchRes, saveNewsArticle, isSaved, unsaveNewsArticle }) {
   const formattedDate = formatSearchResDate(searchRes.publishedAt);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
-  const handleSaveClick = () => {
-    saveNewsArticle(searchRes);
-  };
-
-  console.log(isSaved);
+  const handleSaveClick = () => (isSaved ? unsaveNewsArticle(searchRes) : saveNewsArticle(searchRes));
 
   return (
     <div className="newscard__container">
