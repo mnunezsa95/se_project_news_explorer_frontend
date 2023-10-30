@@ -33,6 +33,9 @@ function App() {
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
 
+  const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
+  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
+
   const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
     // setIsModalLoading(true); //! To use when auth api call is set up
     console.log(emailValue, passwordValue, usernameValue);
@@ -68,9 +71,6 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
-  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
-
   // effects
   useEffect(() => {
     if (!activeModal) return;
@@ -103,7 +103,7 @@ function App() {
           />
         </Route>
         <Route path="/saved-news">
-          <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />
+          <SavedNewsHeader isLoggedIn={isLoggedIn} onLogout={handleSignOut} />
           <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
         </Route>
       </Switch>

@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import "./MobileNav.css";
 
-function MobileNav({ isLoggedIn, inSavedNews, onLoginModal, onLogout }) {
+function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
+  const reactLocation = useLocation();
+  const currentLocation = reactLocation.pathname;
   const [mobileMenu, setMobileMenu] = useState(false);
   const handleMenuToggle = () => setMobileMenu(!mobileMenu);
 
   return (
     <>
       <div className={`mobile__nav ${mobileMenu && "mobile__nav-dark"}`}>
-        <h1 className={`mobile__nav-logo ${mobileMenu ? "mobile__nav-logo" : inSavedNews ? "mobile__nav-logo-saved-news" : ""}`}>NewsExplorer</h1>
+        <h1 className={`mobile__nav-logo ${mobileMenu ? "mobile__nav-logo" : currentLocation === "/saved-news" ? "mobile__nav-logo-saved-news" : ""}`}>
+          NewsExplorer
+        </h1>
         <button
-          className={mobileMenu ? "mobile__nav-button-close" : `mobile__nav-button-hamburger ${inSavedNews && "mobile__nav-button-hamburger-saved-news"}`}
+          className={
+            mobileMenu
+              ? "mobile__nav-button-close"
+              : `mobile__nav-button-hamburger ${currentLocation === "/saved-news" && "mobile__nav-button-hamburger-saved-news"}`
+          }
           onClick={handleMenuToggle}
         ></button>
       </div>

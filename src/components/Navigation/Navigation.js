@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Navigation.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import "./Navigation.css";
 
 function Navigation({ isLoggedIn, onLoginModal, onLogout }) {
   const reactLocation = useLocation();
