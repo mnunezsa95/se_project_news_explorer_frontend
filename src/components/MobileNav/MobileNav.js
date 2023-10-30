@@ -11,16 +11,10 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
 
   return (
     <>
-      <div className={`mobile__nav ${mobileMenu && "mobile__nav-dark"}`}>
-        <h1 className={`mobile__nav-logo ${mobileMenu ? "mobile__nav-logo" : currentLocation === "/saved-news" ? "mobile__nav-logo-saved-news" : ""}`}>
-          NewsExplorer
-        </h1>
+      <div className={mobileMenu ? "mobile__nav-dark" : "mobile__nav"}>
+        <h1 className={mobileMenu ? "mobile__nav-logo" : currentLocation === "/" ? "mobile__nav-logo" : "mobile__nav-logo-saved-news"}>NewsExplorer</h1>
         <button
-          className={
-            mobileMenu
-              ? "mobile__nav-button-close"
-              : `mobile__nav-button-hamburger ${currentLocation === "/saved-news" && "mobile__nav-button-hamburger-saved-news"}`
-          }
+          className={mobileMenu ? "mobile__nav-btn-close" : currentLocation === "/" ? "mobile__nav-btn-hamburger" : "mobile__nav-btn-hamburger-saved-news"}
           onClick={handleMenuToggle}
         ></button>
       </div>
@@ -28,19 +22,19 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
         <div className="mobile__nav-menu">
           <div className="mobile__nav-menu-container">
             <Link to="/">
-              <button className={currentLocation === "/" ? "mobile__nav-button-active" : "mobile__nav-button"}>Home</button>
+              <button className={currentLocation === "/" ? "mobile__nav-btn-active" : "mobile__nav-btn"}>Home</button>
             </Link>
             {isLoggedIn && (
               <Link to="/saved-news">
-                <button className={currentLocation === "/saved-news" ? "mobile__nav-button-active" : "mobile__nav-button"}>Saved Articles</button>
+                <button className={currentLocation === "/saved-news" ? "mobile__nav-btn-active" : "mobile__nav-btn"}>Saved Articles</button>
               </Link>
             )}
             {isLoggedIn ? (
-              <button className="mobile__nav-button-logout" onClick={onLogout}>
+              <button className="mobile__nav-btn-logout" onClick={onLogout}>
                 Marlon
               </button>
             ) : (
-              <button className="mobile__nav-button-signin" onClick={onLoginModal}>
+              <button className="mobile__nav-btn-signin" onClick={onLoginModal}>
                 Sign in
               </button>
             )}

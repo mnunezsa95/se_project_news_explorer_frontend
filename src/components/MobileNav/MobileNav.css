@@ -11,6 +11,15 @@
 }
 
 .mobile__nav-dark {
+  color: white;
+  display: flex;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
   background-color: rgba(26, 27, 34, 1);
 }
 
@@ -22,10 +31,13 @@
 }
 
 .mobile__nav-logo-saved-news {
+  font-family: "Roboto Slab 700", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
   color: black;
 }
 
-.mobile__nav-button-hamburger {
+.mobile__nav-btn-hamburger {
   background-image: url(../../images/mobile-menu-button-white.svg);
   background-color: transparent;
   border: none;
@@ -35,11 +47,17 @@
   cursor: pointer;
 }
 
-.mobile__nav-button-hamburger-saved-news {
+.mobile__nav-btn-hamburger-saved-news {
   background-image: url(../../images/mobile-menu-button-black.svg);
+  background-color: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
 }
 
-.mobile__nav-button-close {
+.mobile__nav-btn-close {
   background-image: url(../../images/close-button-mobile-white.svg);
   background-color: transparent;
   border: none;
@@ -69,7 +87,7 @@
   padding: 16px 16px 26px 16px;
 }
 
-.mobile__nav-button {
+.mobile__nav-btn {
   font-family: "Roboto 500", sans-serif;
   font-weight: 500;
   font-size: 1.125rem;
@@ -80,7 +98,7 @@
   padding: 0;
 }
 
-.mobile__nav-button-active {
+.mobile__nav-btn-active {
   font-family: "Roboto 500", sans-serif;
   font-weight: 500;
   font-size: 1.125rem;
@@ -93,11 +111,11 @@
   height: 25px;
 }
 
-.mobile__nav-button-saved-news {
+.mobile__nav-btn-saved-news {
   color: black;
 }
 
-.mobile__nav-button-signin {
+.mobile__nav-btn-signin {
   font-family: "Roboto 500", sans-serif;
   font-weight: 500;
   font-size: 1.125rem;
@@ -110,7 +128,7 @@
   border-radius: 100px;
 }
 
-.mobile__nav-button-logout {
+.mobile__nav-btn-logout {
   font-family: "Roboto 500", sans-serif;
   font-weight: 500;
   font-size: 1.125rem;
@@ -133,48 +151,46 @@
 }
 
 @media screen and (max-width: 325px) {
-  .mobile__nav-button {
+  .mobile__nav-btn {
     font-size: 1rem;
   }
-
-  .mobile__nav-button-active {
+  .mobile__nav-btn-active {
     font-size: 1rem;
   }
-
-  .mobile__nav-button-signin {
+  .mobile__nav-btn-signin {
     font-size: 1rem;
     padding: 16px 100px;
   }
-  .mobile__nav-button-logout {
+  .mobile__nav-btn-logout {
     padding: 16px 100px;
     font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 295px) {
-  .mobile__nav-button {
+  .mobile__nav-btn {
     font-size: 0.875rem;
   }
 
-  .mobile__nav-button-active {
+  .mobile__nav-btn-active {
     font-size: 0.875rem;
   }
 
-  .mobile__nav-button-signin {
+  .mobile__nav-btn-signin {
     font-size: 0.875rem;
     padding: 16px 90px;
   }
-  .mobile__nav-button-logout {
+  .mobile__nav-btn-logout {
     font-size: 0.875rem;
     padding: 16px 90px;
   }
 }
 
 @media screen and (max-width: 295px) {
-  .mobile__nav-button-signin {
+  .mobile__nav-btn-signin {
     padding: 12px 60px;
   }
-  .mobile__nav-button-logout {
+  .mobile__nav-btn-logout {
     padding: 12px 60px;
   }
 }

@@ -15,21 +15,19 @@ function Navigation({ isLoggedIn, onLoginModal, onLogout }) {
       <div className="nav__right-container">
         <div className="nav__container-links">
           <Link to="/">
-            <button className={currentLocation === "/" ? "nav__button nav__button-active" : "nav__button-saved-news"}>Home</button>
+            <button className={currentLocation === "/" ? "nav__btn nav__btn-active" : "nav__btn-saved-news"}>Home</button>
           </Link>
           {isLoggedIn && (
             <Link to="/saved-news">
-              <button className={currentLocation === "/saved-news" ? "nav__button-saved-news nav__button-active-saved-news" : "nav__button"}>
-                Saved Articles
-              </button>
+              <button className={currentLocation === "/saved-news" ? "nav__btn-saved-news nav__btn-active-saved-news" : "nav__btn"}>Saved Articles</button>
             </Link>
           )}
           {isLoggedIn ? (
-            <button className={currentLocation === "/" ? "nav__button-logout" : "nav__button-logout-saved-news"} onClick={onLogout}>
+            <button className={currentLocation === "/" ? "nav__btn-logout" : "nav__btn-logout-saved-news"} onClick={onLogout}>
               Marlon
             </button>
           ) : (
-            <button className="nav__button-signin" onClick={onLoginModal}>
+            <button className="nav__btn-signin" onClick={onLoginModal}>
               Sign in
             </button>
           )}

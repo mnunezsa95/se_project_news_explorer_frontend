@@ -35,7 +35,7 @@
   align-items: center;
 }
 
-.nav__button {
+.nav__btn {
   font-family: "Roboto 700", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
@@ -48,7 +48,7 @@
   border-bottom: 3px solid transparent;
 }
 
-.nav__button-saved-news {
+.nav__btn-saved-news {
   font-family: "Roboto 700", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
@@ -61,17 +61,17 @@
   border-bottom: 3px solid transparent;
 }
 
-.nav__button-active {
+.nav__btn-active {
   border-bottom: 2px solid white;
   height: 80px;
 }
 
-.nav__button-active-saved-news {
+.nav__btn-active-saved-news {
   border-bottom: 2px solid black;
   height: 80px;
 }
 
-.nav__button-signin {
+.nav__btn-signin {
   font-family: "Roboto 700", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
@@ -87,7 +87,7 @@
   margin-bottom: 2px;
 }
 
-.nav__button-logout {
+.nav__btn-logout {
   font-family: "Roboto 700", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
@@ -104,7 +104,7 @@
   margin-bottom: 2px;
 }
 
-.nav__button-logout-saved-news {
+.nav__btn-logout-saved-news {
   font-family: "Roboto 700", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
@@ -134,28 +134,28 @@
   .nav__container-links {
     column-gap: 16px;
   }
-  .nav__button {
+  .nav__btn {
     font-size: 1rem;
   }
-  .nav__button-saved-news {
+  .nav__btn-saved-news {
     font-size: 1rem;
   }
-  .nav__button-active {
+  .nav__btn-active {
     height: 66px;
   }
-  .nav__button-active-saved-news {
+  .nav__btn-active-saved-news {
     height: 66px;
   }
-  .nav__button-signin {
+  .nav__btn-signin {
     font-size: 1rem;
     max-width: 128px;
     width: 128px;
   }
-  .nav__button-logout {
+  .nav__btn-logout {
     font-size: 1rem;
     padding: 8px 40px 8px 12px;
   }
-  .nav__button-logout-saved-news {
+  .nav__btn-logout-saved-news {
     font-size: 1rem;
     padding: 8px 40px 8px 12px;
   }
@@ -172,32 +172,32 @@
   .nav__container-links {
     column-gap: 8px;
   }
-  .nav__button {
+  .nav__btn {
     font-size: 0.875rem;
   }
-  .nav__button-saved-news {
+  .nav__btn-saved-news {
     font-size: 0.875rem;
   }
-  .nav__button-active {
+  .nav__btn-active {
     height: 56px;
   }
-  .nav__button-active-saved-news {
+  .nav__btn-active-saved-news {
     height: 56px;
   }
-  .nav__button-signin {
+  .nav__btn-signin {
     font-size: 0.875rem;
     max-width: 100px;
     width: 100px;
     padding: 6px 10px;
   }
-  .nav__button-logout {
+  .nav__btn-logout {
     font-size: 0.875rem;
     padding: 6px 35px 6px 10px;
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center right 12px;
   }
-  .nav__button-logout-saved-news {
+  .nav__btn-logout-saved-news {
     font-size: 0.875rem;
     padding: 6px 35px 6px 10px;
     background-size: 20px;
