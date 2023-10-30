@@ -3,13 +3,13 @@ import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, searchRes, saveNewsArticle, isSaved, unsaveNewsArticle }) {
-  const formattedDate = formatSearchResDate(searchRes.publishedAt);
+function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsArticle }) {
+  const formattedDate = formatSearchResDate(newsItem.publishedAt);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
-  const handleSaveClick = () => (isSaved ? unsaveNewsArticle(searchRes) : saveNewsArticle(searchRes));
+  const handleSaveClick = () => (isSaved ? removeNewsArticle(newsItem) : saveNewsArticle(newsItem));
 
   return (
     <div className="newscard__container">
@@ -33,12 +33,12 @@ function NewsCard({ isLoggedIn, searchRes, saveNewsArticle, isSaved, unsaveNewsA
           ></button>
         )}
       </div>
-      <img className="newscard__image" src={searchRes.urlToImage || searchRes.image} alt={searchRes.description} />
+      <img className="newscard__image" src={newsItem.urlToImage || newsItem.image} alt={newsItem.description} />
       <div className="newscard__info-container">
         <p className="newscard__info-date">{formattedDate}</p>
-        <h3 className="newscard__info-title">{searchRes.title}</h3>
-        <p className="newscard__info-text">{searchRes.description || searchRes.text}</p>
-        <p className="newscard__info-publisher">{searchRes.source.name || searchRes.name}</p>
+        <h3 className="newscard__info-title">{newsItem.title}</h3>
+        <p className="newscard__info-text">{newsItem.description || newsItem.text}</p>
+        <p className="newscard__info-publisher">{newsItem.source.name || newsItem.name}</p>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import NothingFound from "../NothingFound/NothingFound";
 
-function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, saveNewsArticle, savedNews, unsaveNewsArticle }) {
+function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, saveNewsArticle, savedNews, removeNewsArticle }) {
   let [cardView, setCardView] = useState(3);
   const handleSearchRes = () => setCardView(cardView + 3);
 
@@ -13,19 +13,19 @@ function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, s
     <section className="newscardlist__section">
       <h2 className="newscardlist__title">Search results</h2>
       <div className="newscardlist__container">
-        {searchResults.slice(0, cardView).map((searchRes, index) => {
+        {searchResults.slice(0, cardView).map((newsItem, index) => {
           const isSaved =
             savedNews.find((savedItem) => {
-              return savedItem.url === searchRes.url;
+              return savedItem.url === newsItem.url;
             }) != null;
           return (
             <NewsCard
               key={index}
-              searchRes={searchRes}
+              newsItem={newsItem}
               isLoggedIn={isLoggedIn}
               saveNewsArticle={saveNewsArticle}
               isSaved={isSaved}
-              unsaveNewsArticle={unsaveNewsArticle}
+              removeNewsArticle={removeNewsArticle}
             />
           );
         })}

@@ -3,11 +3,11 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
 
 //! Will need to add some kind of filter so only "saved" items appear
-function SavedNews({ isLoggedIn, searchResults }) {
+function SavedNews({ isLoggedIn, savedNews }) {
   return (
     <div className="saved__news-container">
-      {searchResults.map((searchRes, index) => {
-        return <NewsCard isLoggedIn={isLoggedIn} searchRes={searchRes} key={index} />;
+      {savedNews.map((newsItem, index) => {
+        return <NewsCard isLoggedIn={isLoggedIn} newsItem={newsItem} key={index} />;
       })}
     </div>
   );

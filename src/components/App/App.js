@@ -69,7 +69,7 @@ function App() {
   };
 
   const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
-  const unsaveNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
+  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
   // effects
   useEffect(() => {
@@ -99,12 +99,12 @@ function App() {
             isPageLoading={isPageLoading}
             savedNews={savedNews}
             saveNewsArticle={saveNewsArticle}
-            unsaveNewsArticle={unsaveNewsArticle}
+            removeNewsArticle={removeNewsArticle}
           />
         </Route>
         <Route path="/saved-news">
           <SavedNewsHeader isLoggedIn={isLoggedIn} inSavedNews={true} onLogout={handleSignOut} />
-          <SavedNews isLoggedIn={isLoggedIn} searchResults={searchResults} />
+          <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
         </Route>
       </Switch>
       <Footer />
