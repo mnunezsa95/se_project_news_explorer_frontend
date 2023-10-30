@@ -3,7 +3,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import NothingFound from "../NothingFound/NothingFound";
 
-function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, inSavedNews, saveNewsArticle, savedNews }) {
+function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, saveNewsArticle, savedNews }) {
   let [cardView, setCardView] = useState(3);
   const handleSearchRes = () => setCardView(cardView + 3);
 
@@ -18,9 +18,7 @@ function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, i
             savedNews.find((savedItem) => {
               return savedItem.url === searchRes.url;
             }) != null;
-          return (
-            <NewsCard key={index} searchRes={searchRes} isLoggedIn={isLoggedIn} inSavedNews={inSavedNews} saveNewsArticle={saveNewsArticle} isSaved={isSaved} />
-          );
+          return <NewsCard key={index} searchRes={searchRes} isLoggedIn={isLoggedIn} saveNewsArticle={saveNewsArticle} isSaved={isSaved} />;
         })}
       </div>
       <button className="newscardlist__button" type="button" onClick={handleSearchRes}>

@@ -53,6 +53,17 @@
   background: no-repeat url("../../images/bookmark-button-hover.svg") #fff;
 }
 
+.newscard__bookmark-button-active {
+  background: no-repeat url("../../images/bookmark-button-marked.svg") #fff;
+  background-position: center;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
 .newscard__delete-button {
   background: no-repeat url("../../images/delete-button-normal.svg") #fff;
   background-position: center;
