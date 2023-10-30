@@ -30,9 +30,13 @@ function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, s
           );
         })}
       </div>
-      <button className="newscardlist__button" type="button" onClick={handleSearchRes}>
-        Show more
-      </button>
+      {cardView <= searchResults.length ? (
+        <button className="newscardlist__button" type="button" onClick={handleSearchRes}>
+          Show more
+        </button>
+      ) : (
+        ""
+      )}
     </section>
   ) : (
     ""
