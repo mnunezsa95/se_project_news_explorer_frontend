@@ -20,25 +20,33 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
       </div>
       {mobileMenu && (
         <div className="mobile__nav-menu">
-          <div className="mobile__nav-menu-container">
-            <Link to="/">
-              <button className={currentLocation === "/" ? "mobile__nav-btn-active" : "mobile__nav-btn"}>Home</button>
-            </Link>
-            {isLoggedIn && (
-              <Link to="/saved-news">
-                <button className={currentLocation === "/saved-news" ? "mobile__nav-btn-active" : "mobile__nav-btn"}>Saved Articles</button>
+          <ul className="mobile__nav-menu-container">
+            <li className="mobile__nav-link">
+              <Link to="/">
+                <button className={currentLocation === "/" ? "mobile__nav-btn-active" : "mobile__nav-btn"}>Home</button>
               </Link>
+            </li>
+            {isLoggedIn && (
+              <li className="mobile__nav-link">
+                <Link to="/saved-news">
+                  <button className={currentLocation === "/saved-news" ? "mobile__nav-btn-active" : "mobile__nav-btn"}>Saved Articles</button>
+                </Link>
+              </li>
             )}
             {isLoggedIn ? (
-              <button className="mobile__nav-btn-logout" onClick={onLogout}>
-                Marlon
-              </button>
+              <li className="mobile__nav-btn-link">
+                <button className="mobile__nav-btn-logout" onClick={onLogout}>
+                  Marlon
+                </button>
+              </li>
             ) : (
-              <button className="mobile__nav-btn-signin" onClick={onLoginModal}>
-                Sign in
-              </button>
+              <li className="mobile__nav-btn-link">
+                <button className="mobile__nav-btn-signin" onClick={onLoginModal}>
+                  Sign in
+                </button>
+              </li>
             )}
-          </div>
+          </ul>
         </div>
       )}
     </>

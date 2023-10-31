@@ -85,6 +85,11 @@
   flex-direction: column;
   row-gap: 22px;
   padding: 16px 16px 26px 16px;
+  list-style-type: none;
+}
+
+.mobile__nav-btn-link {
+  align-self: center;
 }
 
 .mobile__nav-btn {
