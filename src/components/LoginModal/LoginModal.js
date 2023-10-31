@@ -31,7 +31,16 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
       <div>
         <label className="form__label" htmlFor="email">
           Email
-          <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" value={emailValue} onChange={handleEmailChange} />
+          <input
+            className="form__input-text"
+            name="email"
+            type="email"
+            required
+            placeholder="Enter Email"
+            value={emailValue}
+            onChange={handleEmailChange}
+            autoFocus
+          />
         </label>
         {emailValue !== "" && <span className={!isEmailValid ? "form__error-login" : "form__error-login-disabled"}>{validationError}</span>}
         <label className="form__label" htmlFor="password">
@@ -46,6 +55,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
             placeholder="Enter Password"
             value={passwordValue}
             onChange={handlePasswordChange}
+            autoFocus
           />
         </label>
       </div>

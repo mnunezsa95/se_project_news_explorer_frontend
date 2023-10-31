@@ -42,7 +42,16 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
       <div>
         <label className="form__label" htmlFor="email">
           Email
-          <input className="form__input-text" name="email" type="email" required placeholder="Enter Email" value={emailValue} onChange={handleEmailChange} />
+          <input
+            className="form__input-text"
+            name="email"
+            type="email"
+            required
+            placeholder="Enter Email"
+            value={emailValue}
+            onChange={handleEmailChange}
+            autoFocus
+          />
         </label>
         <label className="form__label" htmlFor="password">
           Password
@@ -56,6 +65,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
             placeholder="Enter Password"
             value={passwordValue}
             onChange={handlePasswordChange}
+            autoFocus
           />
         </label>
         <label className="form__label" htmlFor="username">
@@ -68,6 +78,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
             placeholder="Enter your username"
             value={usernameValue}
             onChange={handleUsernameChange}
+            autoFocus
           />
         </label>
         {/* <span className="form__error-active-register">This email is not available</span> */}
