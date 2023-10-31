@@ -12,7 +12,7 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
   return (
     <>
       <div className={mobileMenu ? "mobile__nav-dark" : "mobile__nav"}>
-        <h1 className={mobileMenu ? "mobile__nav-logo" : currentLocation === "/" ? "mobile__nav-logo" : "mobile__nav-logo-saved-news"}>NewsExplorer</h1>
+        <h2 className={mobileMenu ? "mobile__nav-logo" : currentLocation === "/" ? "mobile__nav-logo" : "mobile__nav-logo-saved-news"}>NewsExplorer</h2>
         <button
           className={mobileMenu ? "mobile__nav-btn-close" : currentLocation === "/" ? "mobile__nav-btn-hamburger" : "mobile__nav-btn-hamburger-saved-news"}
           onClick={handleMenuToggle}

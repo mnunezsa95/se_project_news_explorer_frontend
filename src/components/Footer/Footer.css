@@ -30,6 +30,8 @@
 .footer__links {
   display: flex;
   gap: 35px;
+  list-style-type: none;
+  padding: 0;
 }
 
 .footer__button {
@@ -52,6 +54,8 @@
   display: flex;
   gap: 22px;
   align-items: center;
+  list-style-type: none;
+  padding: 0;
 }
 
 .footer__link-icon-github {

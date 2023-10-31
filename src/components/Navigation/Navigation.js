@@ -10,28 +10,36 @@ function Navigation({ isLoggedIn, onLoginModal, onLogout }) {
   return (
     <div className="nav">
       <div className="nav__left-container">
-        <h1 className={currentLocation === "/" ? "nav__logo" : "nav__logo-saved-news"}>NewsExplorer</h1>
+        <h2 className={currentLocation === "/" ? "nav__logo" : "nav__logo-saved-news"}>NewsExplorer</h2>
       </div>
       <div className="nav__right-container">
-        <div className="nav__container-links">
-          <Link to="/">
-            <button className={currentLocation === "/" ? "nav__btn nav__btn-active" : "nav__btn-saved-news"}>Home</button>
-          </Link>
-          {isLoggedIn && (
-            <Link to="/saved-news">
-              <button className={currentLocation === "/saved-news" ? "nav__btn-saved-news nav__btn-active-saved-news" : "nav__btn"}>Saved Articles</button>
+        <ul className="nav__container-links">
+          <li>
+            <Link to="/">
+              <button className={currentLocation === "/" ? "nav__btn nav__btn-active" : "nav__btn-saved-news"}>Home</button>
             </Link>
+          </li>
+          {isLoggedIn && (
+            <li>
+              <Link to="/saved-news">
+                <button className={currentLocation === "/saved-news" ? "nav__btn-saved-news nav__btn-active-saved-news" : "nav__btn"}>Saved Articles</button>
+              </Link>
+            </li>
           )}
           {isLoggedIn ? (
-            <button className={currentLocation === "/" ? "nav__btn-logout" : "nav__btn-logout-saved-news"} onClick={onLogout}>
-              Marlon
-            </button>
+            <li>
+              <button className={currentLocation === "/" ? "nav__btn-logout" : "nav__btn-logout-saved-news"} onClick={onLogout}>
+                Marlon
+              </button>
+            </li>
           ) : (
-            <button className="nav__btn-signin" onClick={onLoginModal}>
-              Sign in
-            </button>
+            <li>
+              <button className="nav__btn-signin" onClick={onLoginModal}>
+                Sign in
+              </button>
+            </li>
           )}
-        </div>
+        </ul>
       </div>
     </div>
   );

@@ -12,8 +12,9 @@ function About() {
         <h2 className="about__title">About the author</h2>
         <p className="about__text">
           This web-app was created by Marlon Nunez as part of TripleTen's graduation project. I am current project manager and aspirinng full-stack software
-          engineer based in Boston, MA. <br></br>
-          <br></br>
+          engineer based in Boston, MA.
+        </p>
+        <p className="about__text">
           Over the last eight months, I have been working towards my goal of breaking into the tech industry as an engineer. During my time at triple ten, I had
           the opportunity of working with many different languages, frameworks, and tools such as, but not limited to: HTML, CSS, JavaScript, React.js, Node.js,
           Express.js, MongoDB, Google Cloud, Babel, NPM, and Webpack. I also have some knowledge of other tools and languages such as SQL, Python, Parcel and
