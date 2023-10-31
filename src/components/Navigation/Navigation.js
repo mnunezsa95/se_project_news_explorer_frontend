@@ -8,7 +8,7 @@ function Navigation({ isLoggedIn, onLoginModal, onLogout }) {
   const currentLocation = reactLocation.pathname;
 
   return (
-    <div className="nav">
+    <nav className="nav">
       <div className="nav__left-container">
         <h2 className={currentLocation === "/" ? "nav__logo" : "nav__logo-saved-news"}>NewsExplorer</h2>
       </div>
@@ -41,7 +41,7 @@ function Navigation({ isLoggedIn, onLoginModal, onLogout }) {
           )}
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 

@@ -12,7 +12,7 @@ function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, s
   ) : !isPageLoading && isSearching && searchResults.length >= 3 ? (
     <section className="newscardlist__section">
       <h2 className="newscardlist__title">Search results</h2>
-      <div className="newscardlist__container">
+      <ul className="newscardlist__container">
         {searchResults.slice(0, cardView).map((newsItem, index) => {
           const isSaved =
             savedNews.find((savedItem) => {
@@ -29,7 +29,7 @@ function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, s
             />
           );
         })}
-      </div>
+      </ul>
       {cardView <= searchResults.length ? (
         <button className="newscardlist__button" type="button" onClick={handleSearchRes}>
           Show more

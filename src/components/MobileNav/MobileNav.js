@@ -19,7 +19,7 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
         ></button>
       </div>
       {mobileMenu && (
-        <div className="mobile__nav-menu">
+        <nav className="mobile__nav-menu">
           <ul className="mobile__nav-menu-container">
             <li className="mobile__nav-link">
               <Link to="/">
@@ -47,7 +47,7 @@ function MobileNav({ isLoggedIn, onLoginModal, onLogout }) {
               </li>
             )}
           </ul>
-        </div>
+        </nav>
       )}
     </>
   );

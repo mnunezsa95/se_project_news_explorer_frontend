@@ -12,7 +12,7 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
   const handleSaveClick = () => (isSaved ? removeNewsArticle(newsItem) : saveNewsArticle(newsItem));
 
   return (
-    <div className="newscard__container">
+    <article className="newscard__container">
       {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">Yellowstone</div> : ""}
       <div className="newscard__bookmark-section">
         {!isLoggedIn && !isSaved && showIcon ? (
@@ -41,7 +41,7 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
         <p className="newscard__info-text">{newsItem.description || newsItem.text}</p>
         <p className="newscard__info-publisher">{newsItem.source.name || newsItem.name}</p>
       </div>
-    </div>
+    </article>
   );
 }
 
