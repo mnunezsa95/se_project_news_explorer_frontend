@@ -93,16 +93,22 @@
   }
 }
 
+@media screen and (max-width: 325px) {
+  .newscardlist__container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 @media screen and (max-width: 295px) {
   .newscardlist__title {
     font-size: 1.5rem;
     padding-bottom: 40px;
   }
   .newscardlist__container {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
-
   .newscardlist__button {
     font-size: 1rem;
     margin-bottom: 20px;
