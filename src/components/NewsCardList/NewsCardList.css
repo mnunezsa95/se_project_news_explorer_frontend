@@ -9,7 +9,7 @@
 
 .newscardlist__title {
   align-self: baseline;
-  font-family: "Roboto Slab 400";
+  font-family: "Roboto Slab";
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
@@ -43,7 +43,7 @@
   padding: 0;
   color: #1a1b22;
   text-align: center;
-  font-family: "Roboto 500", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.33;

@@ -13,7 +13,7 @@
 }
 
 .modal__title-success {
-  font-family: "Roboto 900", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   width: 315px;
@@ -23,7 +23,7 @@
 }
 
 .modal__redirect-button-success {
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   background-color: #fff;
   font-weight: 400;

@@ -10,7 +10,7 @@
 }
 
 .nav__logo {
-  font-family: "Roboto Slab 700", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -20,7 +20,7 @@
 }
 
 .nav__logo-saved-news {
-  font-family: "Roboto Slab 700", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -37,7 +37,7 @@
 }
 
 .nav__btn {
-  font-family: "Roboto 700", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.2;
@@ -50,7 +50,7 @@
 }
 
 .nav__btn-saved-news {
-  font-family: "Roboto 700", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.2;
@@ -73,7 +73,7 @@
 }
 
 .nav__btn-signin {
-  font-family: "Roboto 700", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.2;
@@ -89,7 +89,7 @@
 }
 
 .nav__btn-logout {
-  font-family: "Roboto 700", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
@@ -106,7 +106,7 @@
 }
 
 .nav__btn-logout-saved-news {
-  font-family: "Roboto 700", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;

@@ -26,7 +26,7 @@
 }
 
 .modal__title {
-  font-family: "Roboto 900", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   line-height: 1.2;
@@ -55,7 +55,7 @@
 }
 
 .modal__submit-button {
-  font-family: "Roboto 500", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   line-height: 1.2;
   background-color: rgba(47, 113, 229, 1);
@@ -75,7 +75,7 @@
 }
 
 .modal__redirect-button {
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   background-color: #fff;
   font-weight: 400;

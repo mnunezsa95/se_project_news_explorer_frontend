@@ -7,7 +7,7 @@
 }
 
 .saved-news-header__title {
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   line-height: 1.33;
   font-weight: 400;
@@ -17,7 +17,7 @@
 }
 
 .saved-news-header__news-counter {
-  font-family: "Roboto Slab 400", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 2.5rem;
   line-height: 1.15;
   font-weight: 400;
@@ -26,7 +26,7 @@
 }
 
 .saved-news-header__news-keywords {
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   line-height: 1.33;
   font-weight: 400;

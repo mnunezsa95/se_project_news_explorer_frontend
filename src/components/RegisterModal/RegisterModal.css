@@ -1,6 +1,6 @@
 .form__label {
   font-size: 1rem;
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -14,7 +14,7 @@
 }
 
 .form__input-text {
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-top: 10px;
   font-size: 0.875rem;
   height: 15px;

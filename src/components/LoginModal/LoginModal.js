@@ -55,7 +55,6 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
             placeholder="Enter Password"
             value={passwordValue}
             onChange={handlePasswordChange}
-            autoFocus
           />
         </label>
       </div>

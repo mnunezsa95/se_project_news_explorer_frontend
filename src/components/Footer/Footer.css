@@ -14,7 +14,7 @@
 
 .footer__copyright {
   color: #b6bcbf;
-  font-family: "Roboto 500", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.375;
@@ -35,7 +35,7 @@
 }
 
 .footer__button {
-  font-family: "Roboto 400", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.33;
