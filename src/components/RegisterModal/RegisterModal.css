@@ -1,0 +1,41 @@
+.form__label {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label:nth-of-type(2n) {
+  padding-top: 31px;
+}
+
+.form__label:last-of-type {
+  padding-top: 31px;
+}
+
+.form__input-text {
+  font-family: "Roboto", sans-serif;
+  margin-top: 10px;
+  font-size: 0.875rem;
+  height: 15px;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.form__error-disabled {
+  display: none;
+}
+
+.form__error-active-register {
+  display: block;
+  text-align: center;
+  color: #f00;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  padding-top: 15px;
+}

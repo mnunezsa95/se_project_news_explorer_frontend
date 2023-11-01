@@ -1,0 +1,20 @@
+.saved__news-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: auto;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 32px 40px;
+  background-color: rgba(245, 246, 247, 1);
+}
+
+@media screen and (max-width: 425px) {
+  .saved__news-container {
+    padding: 24px 16px;
+    gap: 10px;
+  }
+}
