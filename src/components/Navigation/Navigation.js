@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import "./Navigation.css";
 
-function Navigation({ isLoggedIn, onSignInModal, onLogout }) {
+function Navigation({ isLoggedIn, currentUser, onSignInModal, onLogout }) {
   const reactLocation = useLocation();
   const currentLocation = reactLocation.pathname;
 
@@ -29,7 +29,7 @@ function Navigation({ isLoggedIn, onSignInModal, onLogout }) {
           {isLoggedIn ? (
             <li>
               <button className={currentLocation === "/" ? "nav__btn-logout" : "nav__btn-logout-saved-news"} onClick={onLogout}>
-                Marlon
+                {currentUser ? currentUser.name : ""}
               </button>
             </li>
           ) : (

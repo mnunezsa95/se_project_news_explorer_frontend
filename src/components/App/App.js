@@ -86,6 +86,19 @@ function App() {
 
   // effects
   useEffect(() => {
+    const jwt = localStorage.getItem("jsonwebtoken");
+    if (jwt) {
+      setToken(jwt);
+      authorizeToken(jwt)
+        .then((res) => {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+        })
+        .catch((err) => console.error("Invalid token: ", err));
+    }
+  }, [token]);
+
+  useEffect(() => {
     if (!activeModal) return;
     const handleEscClose = (evt) => {
       if (evt.key === "Escape") handleCloseModal();
@@ -100,6 +113,7 @@ function App() {
         <Route exact path="/">
           <Header
             isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
             onSignInModal={handleSignInModal}
             onSignUpModal={handleSignUpModal}
             onLogout={handleSignOut}
@@ -117,7 +131,7 @@ function App() {
         </Route>
         <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
           <Route path="/saved-news">
-            <SavedNewsHeader isLoggedIn={isLoggedIn} onLogout={handleSignOut} />
+            <SavedNewsHeader isLoggedIn={isLoggedIn} currentUser={currentUser} onLogout={handleSignOut} />
             <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
           </Route>
         </ProtectedRoute>

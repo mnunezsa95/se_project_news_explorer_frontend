@@ -3,11 +3,11 @@ import "./SavedNewsHeader.css";
 import Navigation from "../Navigation/Navigation";
 import MobileNav from "../MobileNav/MobileNav";
 
-function SavedNewsHeader({ isLoggedIn, onLogout }) {
+function SavedNewsHeader({ isLoggedIn, currentUser, onLogout }) {
   return (
     <div className="saved-news-header__container">
-      <Navigation isLoggedIn={isLoggedIn} onLogout={onLogout} />
-      <MobileNav isLoggedIn={isLoggedIn} onLogout={onLogout} />
+      <Navigation isLoggedIn={isLoggedIn} currentUser={currentUser} onLogout={onLogout} />
+      <MobileNav isLoggedIn={isLoggedIn} currentUser={currentUser} onLogout={onLogout} />
       <div className="saved-news-header__info-container">
         <p className="saved-news-header__title">Saved articles</p>
         <h2 className="saved-news-header__news-counter">Elise, you have 5 saved articles</h2>

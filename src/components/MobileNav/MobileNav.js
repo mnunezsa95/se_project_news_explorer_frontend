@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import "./MobileNav.css";
 
-function MobileNav({ isLoggedIn, onSignInModal, onLogout }) {
+function MobileNav({ isLoggedIn, currentUser, onSignInModal, onLogout }) {
   const reactLocation = useLocation();
   const currentLocation = reactLocation.pathname;
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -36,7 +36,7 @@ function MobileNav({ isLoggedIn, onSignInModal, onLogout }) {
             {isLoggedIn ? (
               <li className="mobile__nav-btn-link">
                 <button className="mobile__nav-btn-logout" onClick={onLogout}>
-                  Marlon
+                  {currentUser ? currentUser.name : ""}
                 </button>
               </li>
             ) : (
