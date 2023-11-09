@@ -15,6 +15,7 @@ import SignInModal from "../SignInModal/SignInModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import { getNewsArticles } from "../../utils/api";
+import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
 
 function App() {
   // states
@@ -26,7 +27,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [savedNews, setSavedNews] = useState([]);
-  // const [token, setToken] = React.useState(""); //! Will use for authentication
+  const [token, setToken] = React.useState("");
 
   // functions
   const handleSignUpModal = () => setActiveModal("signUp");
@@ -36,19 +37,29 @@ function App() {
   const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
   const handleSignUp = (values) => {
-    // setIsModalLoading(true); //! To use when auth api call is set up
-    console.log(values);
-    handleCloseModal();
-    setActiveModal("success");
-    setIsModalLoading(false);
+    setIsModalLoading(true);
+    signUp({ email: values.email, password: values.password, name: values.name })
+      .then(() => {
+        setIsLoggedIn(true);
+        handleCloseModal();
+        setActiveModal("success");
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setIsModalLoading(false));
   };
 
   const handleSignIn = (values) => {
-    // setIsModalLoading(true); //! To use when auth api call is set up
-    console.log(values);
-    handleCloseModal();
-    setIsLoggedIn(true);
-    setIsModalLoading(false);
+    setIsModalLoading(true);
+    signIn({ email: values.email, password: values.password })
+      .then((res) => {
+        localStorage.setItem("jsonwebtoken", res.token);
+        setToken(localStorage.getItem("jsonwebtoken"));
+        setCurrentUser(res);
+        setIsLoggedIn(true);
+      })
+      .then(() => handleCloseModal())
+      .catch((err) => console.error(err))
+      .finally(() => setIsModalLoading(false));
   };
 
   const handleSignOut = () => {
