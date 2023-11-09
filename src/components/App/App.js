@@ -14,6 +14,9 @@ import Footer from "../Footer/Footer";
 import SignInModal from "../SignInModal/SignInModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
+// constants
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
 
@@ -112,10 +115,12 @@ function App() {
             removeNewsArticle={removeNewsArticle}
           />
         </Route>
-        <Route path="/saved-news">
-          <SavedNewsHeader isLoggedIn={isLoggedIn} onLogout={handleSignOut} />
-          <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
-        </Route>
+        <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
+          <Route path="/saved-news">
+            <SavedNewsHeader isLoggedIn={isLoggedIn} onLogout={handleSignOut} />
+            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
+          </Route>
+        </ProtectedRoute>
       </Switch>
       <Footer />
       {activeModal === "signIn" && (
