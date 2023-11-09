@@ -84,7 +84,7 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  // effects
+  // useFffects
   useEffect(() => {
     const jwt = localStorage.getItem("jsonwebtoken");
     if (jwt) {
