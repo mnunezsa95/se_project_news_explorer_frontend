@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import { useFormWithValidation } from "../hooks/useForm";
+import { useFormWithValidation } from "../../hooks/useForm";
 import "./LoginModal.css";
 
 function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isModalLoading }) {
@@ -33,7 +33,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
             autoFocus
           />
         </label>
-        <span className="form__error-login" id="email-input-error">
+        <span className="form__error" id="email-input-error">
           {errors.email}
         </span>
         <label className="form__label" htmlFor="password">
@@ -51,7 +51,7 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
             onChange={handleChange}
           />
         </label>
-        <span className="form__error-login" id="password-input-error">
+        <span className="form__error" id="password-input-error">
           {errors.password}
         </span>
       </div>

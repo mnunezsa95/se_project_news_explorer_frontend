@@ -1,33 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { useFormWithValidation } from "../../hooks/useForm";
+
 import "./RegisterModal.css";
 
 function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isModalLoading }) {
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
-  const [usernameValue, setUsernameValue] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
-  const [isUsernameValid, setIsUsernameValid] = useState(false);
-
-  const handleEmailChange = (evt) => {
-    setIsEmailValid(evt.target.validity.valid);
-    setEmailValue(evt.target.value);
-  };
-  const handlePasswordChange = (evt) => {
-    setIsPasswordValid(evt.target.validity.valid);
-    setPasswordValue(evt.target.value);
-  };
-  const handleUsernameChange = (evt) => {
-    setIsUsernameValid(evt.target.validity.valid);
-    setUsernameValue(evt.target.value);
-  };
-
-  const isFormValid = isEmailValid && isPasswordValid && isUsernameValid;
+  const { values, errors, handleChange, isValid, resetForm } = useFormWithValidation({ email: "", password: "", name: "" });
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onSubmit({ emailValue, passwordValue, usernameValue });
+    onSubmit(values);
   };
 
   return (
@@ -44,44 +31,55 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
           Email
           <input
             className="form__input-text"
+            id="email-input"
             name="email"
             type="email"
             required
             placeholder="Enter Email"
-            value={emailValue}
-            onChange={handleEmailChange}
+            value={values.email}
+            onChange={handleChange}
             autoFocus
           />
         </label>
+        <span className="form__error" id="email-input-error">
+          {errors.email}
+        </span>
         <label className="form__label" htmlFor="password">
           Password
           <input
             className="form__input-text"
+            id="password-input"
             name="password"
             type="text"
             required
             minLength="1"
             maxLength="8"
             placeholder="Enter Password"
-            value={passwordValue}
-            onChange={handlePasswordChange}
+            value={values.password}
+            onChange={handleChange}
           />
         </label>
-        <label className="form__label" htmlFor="username">
+        <span className="form__error" id="password-input-error">
+          {errors.password}
+        </span>
+        <label className="form__label" htmlFor="name">
           Username
           <input
             className="form__input-text"
-            name="username"
+            id="name-input"
+            name="name"
             type="text"
             required
             placeholder="Enter your username"
-            value={usernameValue}
-            onChange={handleUsernameChange}
+            value={values.name}
+            onChange={handleChange}
           />
         </label>
-        {/* <span className="form__error-active-register">This email is not available</span> */}
+        <span className="form__error" id="name-input-error">
+          {errors.name}
+        </span>
       </div>
-      <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
+      <button className="modal__submit-button" type="submit" disabled={!isValid}>
         Sign up
       </button>
       <button className="modal__redirect-button" onClick={onLoginModal} type="button">
