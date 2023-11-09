@@ -32,7 +32,6 @@ function App() {
   const handleRegisterModal = () => setActiveModal("register");
   const handleLoginModal = () => setActiveModal("login");
   const handleCloseModal = () => setActiveModal(null);
-
   const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
   const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
@@ -44,9 +43,9 @@ function App() {
     setIsModalLoading(false);
   };
 
-  const handleLogin = ({ emailValue, passwordValue }) => {
+  const handleLogin = (values) => {
     // setIsModalLoading(true); //! To use when auth api call is set up
-    console.log(emailValue, passwordValue);
+    console.log(values);
     handleCloseModal();
     setIsLoggedIn(true);
     setIsModalLoading(false);

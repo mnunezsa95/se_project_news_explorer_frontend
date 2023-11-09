@@ -1,29 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { useFormWithValidation } from "../hooks/useForm";
 import "./LoginModal.css";
 
 function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isModalLoading }) {
-  const [emailValue, setEmailValue] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [passwordValue, setPasswordValue] = useState("");
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
-  const [validationError, setValidationError] = useState("");
-  const isFormValid = isEmailValid && isPasswordValid;
-
-  const handleEmailChange = (evt) => {
-    setIsEmailValid(evt.target.validity.valid);
-    setEmailValue(evt.target.value);
-    if (evt.target.validity.typeMismatch) setValidationError("Invalid email address");
-  };
-
-  const handlePasswordChange = (evt) => {
-    setIsPasswordValid(evt.target.validity.valid);
-    setPasswordValue(evt.target.value);
-  };
+  const { values, errors, handleChange, isValid, resetForm } = useFormWithValidation({ email: "", password: "" });
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onSubmit({ emailValue, passwordValue });
+    onSubmit(values);
   };
 
   return (
@@ -33,32 +23,39 @@ function LoginModal({ handleCloseModal, isOpen, onRegisterModal, onSubmit, isMod
           Email
           <input
             className="form__input-text"
+            id="email-input"
             name="email"
             type="email"
             required
             placeholder="Enter Email"
-            value={emailValue}
-            onChange={handleEmailChange}
+            value={values.email}
+            onChange={handleChange}
             autoFocus
           />
         </label>
-        {emailValue !== "" && <span className={!isEmailValid ? "form__error-login" : "form__error-login-disabled"}>{validationError}</span>}
+        <span className="form__error-login" id="email-input-error">
+          {errors.email}
+        </span>
         <label className="form__label" htmlFor="password">
           Password
           <input
             className="form__input-text"
+            id="password-input"
             name="password"
             type="text"
             required
             minLength="1"
             maxLength="8"
             placeholder="Enter Password"
-            value={passwordValue}
-            onChange={handlePasswordChange}
+            value={values.password}
+            onChange={handleChange}
           />
         </label>
+        <span className="form__error-login" id="password-input-error">
+          {errors.password}
+        </span>
       </div>
-      <button className="modal__submit-button" type="submit" disabled={!isFormValid}>
+      <button className="modal__submit-button" type="submit" disabled={!isValid}>
         {isModalLoading ? "Signing in..." : "Sign in"}
       </button>
       <button className="modal__redirect-button" onClick={onRegisterModal} type="button">
