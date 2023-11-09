@@ -35,9 +35,9 @@ function App() {
   const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
   const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
-  const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
+  const handleRegistration = (values) => {
     // setIsModalLoading(true); //! To use when auth api call is set up
-    console.log(emailValue, passwordValue, usernameValue);
+    console.log(values);
     handleCloseModal();
     setActiveModal("success");
     setIsModalLoading(false);
