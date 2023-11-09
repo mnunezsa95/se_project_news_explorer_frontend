@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useFormWithValidation } from "../../hooks/useForm";
+import "./SignInModal.css";
 
-import "./RegisterModal.css";
-
-function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isModalLoading }) {
-  const { values, errors, handleChange, isValid, resetForm } = useFormWithValidation({ email: "", password: "", name: "" });
+function SignInModal({ handleCloseModal, isOpen, onSignUpModal, onSubmit, isModalLoading }) {
+  const { values, errors, handleChange, isValid, resetForm } = useFormWithValidation({ email: "", password: "" });
   useEffect(() => {
     if (isOpen) {
       resetForm();
@@ -18,14 +17,7 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
   };
 
   return (
-    <PopupWithForm
-      title="Sign up"
-      modalName="Register"
-      isOpen={isOpen}
-      onClose={handleCloseModal}
-      onSubmit={handleSubmit}
-      buttonText={isModalLoading ? "Signing up..." : "Sign up"}
-    >
+    <PopupWithForm title="Sign in" modalName="SignIn" isOpen={isOpen} onClose={handleCloseModal} onSubmit={handleSubmit}>
       <div>
         <label className="form__label" htmlFor="email">
           Email
@@ -62,31 +54,15 @@ function RegisterModal({ handleCloseModal, isOpen, onLoginModal, onSubmit, isMod
         <span className="form__error" id="password-input-error">
           {errors.password}
         </span>
-        <label className="form__label" htmlFor="name">
-          Username
-          <input
-            className="form__input-text"
-            id="name-input"
-            name="name"
-            type="text"
-            required
-            placeholder="Enter your username"
-            value={values.name}
-            onChange={handleChange}
-          />
-        </label>
-        <span className="form__error" id="name-input-error">
-          {errors.name}
-        </span>
       </div>
       <button className="modal__submit-button" type="submit" disabled={!isValid}>
-        Sign up
+        {isModalLoading ? "Signing in..." : "Sign in"}
       </button>
-      <button className="modal__redirect-button" onClick={onLoginModal} type="button">
-        <span className="modal__redirect-button-text-alt">or</span> Sign in
+      <button className="modal__redirect-button" onClick={onSignUpModal} type="button">
+        <span className="modal__redirect-button-text-alt">or</span> Sign up
       </button>
     </PopupWithForm>
   );
 }
 
-export default RegisterModal;
+export default SignInModal;

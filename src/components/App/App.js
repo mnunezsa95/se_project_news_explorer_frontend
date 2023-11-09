@@ -11,8 +11,8 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
-import LoginModal from "../LoginModal/LoginModal";
-import RegisterModal from "../RegisterModal/RegisterModal";
+import SignInModal from "../SignInModal/SignInModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import { getNewsArticles } from "../../utils/api";
 
@@ -29,13 +29,13 @@ function App() {
   // const [token, setToken] = React.useState(""); //! Will use for authentication
 
   // functions
-  const handleRegisterModal = () => setActiveModal("register");
-  const handleLoginModal = () => setActiveModal("login");
+  const handleSignUpModal = () => setActiveModal("signUp");
+  const handleSignInModal = () => setActiveModal("signIn");
   const handleCloseModal = () => setActiveModal(null);
   const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
   const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
-  const handleRegistration = (values) => {
+  const handleSignUp = (values) => {
     // setIsModalLoading(true); //! To use when auth api call is set up
     console.log(values);
     handleCloseModal();
@@ -43,7 +43,7 @@ function App() {
     setIsModalLoading(false);
   };
 
-  const handleLogin = (values) => {
+  const handleSignIn = (values) => {
     // setIsModalLoading(true); //! To use when auth api call is set up
     console.log(values);
     handleCloseModal();
@@ -86,8 +86,8 @@ function App() {
         <Route exact path="/">
           <Header
             isLoggedIn={isLoggedIn}
-            onLoginModal={handleLoginModal}
-            onRegisterModal={handleRegisterModal}
+            onSignInModal={handleSignInModal}
+            onSignUpModal={handleSignUpModal}
             onLogout={handleSignOut}
             onSubmit={handleNewsArticleSearch}
           />
@@ -107,28 +107,28 @@ function App() {
         </Route>
       </Switch>
       <Footer />
-      {activeModal === "login" && (
-        <LoginModal
-          isOpen={activeModal === "login"}
-          onLoginModal={handleLoginModal}
-          onRegisterModal={handleRegisterModal}
+      {activeModal === "signIn" && (
+        <SignInModal
+          isOpen={activeModal === "signIn"}
+          onSignInModal={handleSignInModal}
+          onSignUpModal={handleSignUpModal}
           handleCloseModal={handleCloseModal}
           isModalLoading={isModalLoading}
-          onSubmit={handleLogin}
+          onSubmit={handleSignIn}
         />
       )}
-      {activeModal === "register" && (
-        <RegisterModal
-          isOpen={activeModal === "register"}
-          onRegisterModal={handleRegisterModal}
-          onLoginModal={handleLoginModal}
+      {activeModal === "signUp" && (
+        <SignUpModal
+          isOpen={activeModal === "signUp"}
+          onSignUpModal={handleSignUpModal}
+          onSignInModal={handleSignInModal}
           handleCloseModal={handleCloseModal}
           isModalLoading={isModalLoading}
-          onSubmit={handleRegistration}
+          onSubmit={handleSignUp}
         />
       )}
       {activeModal === "success" && (
-        <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onLoginModal={handleLoginModal} />
+        <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onSignInModal={handleSignInModal} />
       )}
     </div>
   );
