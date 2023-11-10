@@ -84,15 +84,15 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  const saveNewsArticle = (newsArticle, keyword = "keyword n/a") => {
+  const saveNewsArticle = (newsArticle, keyword = "Keyword N/A") => {
     saveArticle(newsArticle, keyword);
     setSavedNews([...savedNews, newsArticle]);
   };
 
-  //! Remove doesn't work
   const removeNewsArticle = (newsArticle) => {
     setSavedNews(
       savedNews.filter((article) => {
+        removeArticle(article._id);
         return article.link !== newsArticle.url;
       })
     );
