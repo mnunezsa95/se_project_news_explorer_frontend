@@ -25,7 +25,7 @@ function App() {
   // states
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isModalLoading, setIsModalLoading] = useState(false); //! Will use setIsModalLoading for login/register modals
+  const [isModalLoading, setIsModalLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
