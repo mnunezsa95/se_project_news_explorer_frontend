@@ -20,6 +20,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
 import { saveArticle, getSavedArticles, removeSavedArticle } from "../../utils/MainApi.js";
+import { capitalizeFirstLetter } from "../../utils/constants.js";
 
 function App() {
   // states
@@ -75,6 +76,7 @@ function App() {
     const searchNews = getNewsArticles(userInput);
     searchNews
       .then((data) => {
+        data.articles.forEach((item) => (item.keyword = capitalizeFirstLetter(userInput)));
         setIsSearching(true);
         setSearchResults(data.articles);
         setIsPageLoading(false);
@@ -87,14 +89,13 @@ function App() {
     setSavedNews([...savedNews, newsArticle]);
   };
 
+  //! Remove doesn't work
   const removeNewsArticle = (newsArticle) => {
-    removeSavedArticle(newsArticle._id).then(() => {
-      setSavedNews(
-        savedNews.filter((article) => {
-          return article.url !== newsArticle.url;
-        })
-      );
-    });
+    setSavedNews(
+      savedNews.filter((article) => {
+        return article.link !== newsArticle.url;
+      })
+    );
   };
 
   // useFffects
@@ -123,7 +124,9 @@ function App() {
   useEffect(() => {
     if (isLoggedIn) {
       getSavedArticles()
-        .then((data) => setSavedNews(data))
+        .then((data) => {
+          setSavedNews(data);
+        })
         .catch((err) => console.error(err));
     }
   }, [isLoggedIn]);

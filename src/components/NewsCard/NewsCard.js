@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
+import noUrlImage from "../../images/no-url-image.jpeg";
 import "./NewsCard.css";
 
 function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsArticle }) {
@@ -13,7 +14,7 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
 
   return (
     <article className="newscard__container">
-      {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">Yellowstone</div> : ""}
+      {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">{newsItem.keyword}</div> : ""}
       <div className="newscard__bookmark-section">
         {!isLoggedIn && !isSaved && showIcon ? (
           <p className="newscard__bookmark-additional">Sign in to save articles</p>
@@ -34,7 +35,7 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
           ></button>
         )}
       </div>
-      <img className="newscard__image" src={newsItem.urlToImage || newsItem.image} alt={newsItem.description} />
+      <img className="newscard__image" src={newsItem.urlToImage || newsItem.image || noUrlImage} alt={newsItem.description} />
       <div className="newscard__info-container">
         <p className="newscard__info-date">{formattedDate}</p>
         <h3 className="newscard__info-title">{newsItem.title}</h3>

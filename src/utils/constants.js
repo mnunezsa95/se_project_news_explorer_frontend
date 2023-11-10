@@ -26,6 +26,10 @@ function getLastWeekDate() {
 }
 export const previousWeek = getLastWeekDate();
 
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // checks server response
 export const checkServerResponse = (res) => {
   if (!res.ok) return Promise.reject(`An error with the Status Code ${res.status} has occurred`);
