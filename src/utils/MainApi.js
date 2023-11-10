@@ -1,6 +1,6 @@
 import { BASE_URL, checkServerResponse } from "./constants";
 
-const saveArticle = (article, keyword) => {
+const saveArticle = (article) => {
   return fetch(`${BASE_URL}/articles`, {
     method: "POST",
     headers: {
@@ -8,7 +8,7 @@ const saveArticle = (article, keyword) => {
       Authorization: `Bearer ${localStorage.getItem("jsonwebtoken")}`,
     },
     body: JSON.stringify({
-      keyword: keyword,
+      keyword: article.keyword,
       title: article.title,
       text: article.description,
       date: article.publishedAt,
@@ -31,7 +31,7 @@ const getSavedArticles = () => {
   }).then(checkServerResponse);
 };
 
-const removeSavedArticle = (articleId) => {
+const removeArticle = (articleId) => {
   return fetch(`${BASE_URL}/articles/${articleId}`, {
     method: "DELETE",
     headers: {
@@ -42,4 +42,4 @@ const removeSavedArticle = (articleId) => {
   }).then(checkServerResponse);
 };
 
-export { saveArticle, getSavedArticles, removeSavedArticle };
+export { saveArticle, getSavedArticles, removeArticle };

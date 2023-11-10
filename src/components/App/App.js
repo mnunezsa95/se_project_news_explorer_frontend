@@ -19,7 +19,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 // constants, api functions
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
-import { saveArticle, getSavedArticles, removeSavedArticle } from "../../utils/MainApi.js";
+import { saveArticle, getSavedArticles, removeArticle } from "../../utils/MainApi.js";
 import { capitalizeFirstLetter } from "../../utils/constants.js";
 
 function App() {
