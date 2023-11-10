@@ -65,9 +65,8 @@ function App() {
   };
 
   const handleSignOut = () => {
-    // delete token
-    //! add redirection at some point
-    setCurrentUser(false);
+    localStorage.removeItem("jsonwebtoken");
+    setCurrentUser(null);
     setIsLoggedIn(false);
   };
 
@@ -114,10 +113,12 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
-    getSavedArticles()
-      .then((data) => setSavedNews(data))
-      .catch((err) => console.error(err));
-  }, []);
+    if (isLoggedIn) {
+      getSavedArticles()
+        .then((data) => setSavedNews(data))
+        .catch((err) => console.error(err));
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className="page">
