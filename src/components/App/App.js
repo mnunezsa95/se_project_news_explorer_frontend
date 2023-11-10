@@ -16,9 +16,10 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-// constants
+// constants, api functions
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
+import { bookmarkArticle } from "../../utils/MainApi.js";
 
 function App() {
   // states
@@ -36,8 +37,6 @@ function App() {
   const handleSignUpModal = () => setActiveModal("signUp");
   const handleSignInModal = () => setActiveModal("signIn");
   const handleCloseModal = () => setActiveModal(null);
-  const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
-  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
   const handleSignUp = (values) => {
     setIsModalLoading(true);
@@ -83,6 +82,13 @@ function App() {
       })
       .catch((err) => console.error(err));
   };
+
+  const saveNewsArticle = (newsArticle, keyword = "keyword n/a") => {
+    bookmarkArticle(newsArticle, keyword);
+    setSavedNews([...savedNews, newsArticle]);
+  };
+
+  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
 
   // useFffects
   useEffect(() => {
