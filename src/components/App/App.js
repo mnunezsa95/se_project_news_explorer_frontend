@@ -87,7 +87,15 @@ function App() {
     setSavedNews([...savedNews, newsArticle]);
   };
 
-  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
+  const removeNewsArticle = (newsArticle) => {
+    removeSavedArticle(newsArticle._id).then(() => {
+      setSavedNews(
+        savedNews.filter((article) => {
+          return article.url !== newsArticle.url;
+        })
+      );
+    });
+  };
 
   // useFffects
   useEffect(() => {

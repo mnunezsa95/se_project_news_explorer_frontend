@@ -29,13 +29,14 @@ const getSavedArticles = () => {
   }).then(checkServerResponse);
 };
 
-const removeSavedArticle = (selectedArticle) => {
-  return fetch(`${BASE_URL}/articles/${selectedArticle}`, {
+const removeSavedArticle = (articleId) => {
+  return fetch(`${BASE_URL}/articles/${articleId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("jsonwebtoken")}`,
     },
+    body: JSON.stringify({ articleId }),
   }).then(checkServerResponse);
 };
 
