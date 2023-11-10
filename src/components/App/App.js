@@ -19,7 +19,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 // constants, api functions
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
-import { bookmarkArticle } from "../../utils/MainApi.js";
+import { bookmarkArticle, getBookmarkedArticles } from "../../utils/MainApi.js";
 
 function App() {
   // states
@@ -112,6 +112,12 @@ function App() {
     document.addEventListener("keydown", handleEscClose);
     return () => document.removeEventListener("keydown", handleEscClose);
   }, [activeModal]);
+
+  useEffect(() => {
+    getBookmarkedArticles()
+      .then((data) => setSavedNews(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div className="page">

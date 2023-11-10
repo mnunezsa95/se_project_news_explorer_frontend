@@ -1,7 +1,7 @@
 import { BASE_URL, checkServerResponse } from "./constants";
 
 const bookmarkArticle = (article, keyword) => {
-  return fetch(`${BASE_URL}/articles/`, {
+  return fetch(`${BASE_URL}/articles`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,4 +19,14 @@ const bookmarkArticle = (article, keyword) => {
   }).then(checkServerResponse);
 };
 
-export { bookmarkArticle };
+const getBookmarkedArticles = () => {
+  return fetch(`${BASE_URL}/articles`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jsonwebtoken")}`,
+    },
+  }).then(checkServerResponse);
+};
+
+export { bookmarkArticle, getBookmarkedArticles };
