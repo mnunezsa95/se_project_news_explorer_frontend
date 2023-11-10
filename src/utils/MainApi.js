@@ -1,6 +1,6 @@
 import { BASE_URL, checkServerResponse } from "./constants";
 
-const bookmarkArticle = (article, keyword) => {
+const saveArticle = (article, keyword) => {
   return fetch(`${BASE_URL}/articles`, {
     method: "POST",
     headers: {
@@ -19,7 +19,7 @@ const bookmarkArticle = (article, keyword) => {
   }).then(checkServerResponse);
 };
 
-const getBookmarkedArticles = () => {
+const getSavedArticles = () => {
   return fetch(`${BASE_URL}/articles`, {
     method: "GET",
     headers: {
@@ -29,4 +29,14 @@ const getBookmarkedArticles = () => {
   }).then(checkServerResponse);
 };
 
-export { bookmarkArticle, getBookmarkedArticles };
+const removeSavedArticle = (selectedArticle) => {
+  return fetch(`${BASE_URL}/articles/${selectedArticle}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jsonwebtoken")}`,
+    },
+  }).then(checkServerResponse);
+};
+
+export { saveArticle, getSavedArticles, removeSavedArticle };

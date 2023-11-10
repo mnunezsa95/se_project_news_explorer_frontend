@@ -19,7 +19,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 // constants, api functions
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
-import { bookmarkArticle, getBookmarkedArticles } from "../../utils/MainApi.js";
+import { saveArticle, getSavedArticles, removeSavedArticle } from "../../utils/MainApi.js";
 
 function App() {
   // states
@@ -84,7 +84,7 @@ function App() {
   };
 
   const saveNewsArticle = (newsArticle, keyword = "keyword n/a") => {
-    bookmarkArticle(newsArticle, keyword);
+    saveArticle(newsArticle, keyword);
     setSavedNews([...savedNews, newsArticle]);
   };
 
@@ -114,7 +114,7 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
-    getBookmarkedArticles()
+    getSavedArticles()
       .then((data) => setSavedNews(data))
       .catch((err) => console.error(err));
   }, []);
