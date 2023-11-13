@@ -1,6 +1,7 @@
 {
   "name": "se_project_news_explorer_frontend",
   "author": "Marlon Nunez",
+  "homepage": "https://www.news-explorer.mooo.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
