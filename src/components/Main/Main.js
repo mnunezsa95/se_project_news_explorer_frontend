@@ -4,7 +4,17 @@ import Loading from "../Loading/Loading";
 import About from "../About/About";
 import "./Main.css";
 
-function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, savedNews, handleSaveArticle, handleUnsaveArticle, handleRemoveArticle }) {
+function Main({
+  isLoggedIn,
+  searchResults,
+  isSearching,
+  isPageLoading,
+  savedNews,
+  handleSaveArticle,
+  handleUnsaveArticle,
+  handleRemoveArticle,
+  handleSignInModal,
+}) {
   return (
     <>
       {isPageLoading === false ? (
@@ -17,6 +27,7 @@ function Main({ isLoggedIn, searchResults, isSearching, isPageLoading, savedNews
           handleSaveArticle={handleSaveArticle}
           handleUnsaveArticle={handleUnsaveArticle}
           handleRemoveArticle={handleRemoveArticle}
+          handleSignInModal={handleSignInModal}
         />
       ) : (
         <Loading />

@@ -3,7 +3,17 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import NothingFound from "../NothingFound/NothingFound";
 
-function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, savedNews, handleSaveArticle, handleUnsaveArticle, handleRemoveArticle }) {
+function NewsCardList({
+  isLoggedIn,
+  searchResults,
+  isPageLoading,
+  isSearching,
+  savedNews,
+  handleSaveArticle,
+  handleUnsaveArticle,
+  handleRemoveArticle,
+  handleSignInModal,
+}) {
   let [cardView, setCardView] = useState(3);
   const handleSearchRes = () => setCardView(cardView + 3);
 
@@ -27,6 +37,7 @@ function NewsCardList({ isLoggedIn, searchResults, isPageLoading, isSearching, s
               handleSaveArticle={handleSaveArticle}
               handleUnsaveArticle={handleUnsaveArticle}
               handleRemoveArticle={handleRemoveArticle}
+              handleSignInModal={handleSignInModal}
             />
           );
         })}

@@ -3,13 +3,19 @@ import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleUnsaveArticle, handleRemoveArticle }) {
+function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleUnsaveArticle, handleRemoveArticle, handleSignInModal }) {
   const formattedDate = formatSearchResDate(newsItem.publishedAt || newsItem.date);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
-  const handleSaveClick = () => (isSaved ? handleUnsaveArticle(newsItem) : handleSaveArticle(newsItem, newsItem.keyword));
+  const handleSaveClick = () => {
+    if (isLoggedIn) {
+      isSaved ? handleUnsaveArticle(newsItem) : handleSaveArticle(newsItem, newsItem.keyword);
+    } else {
+      handleSignInModal();
+    }
+  };
   const handleDeleteClick = () => handleRemoveArticle(newsItem);
 
   return (
@@ -31,7 +37,7 @@ function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleUnsa
             onMouseOver={handleShowIcon}
             onMouseOut={handleHideIcon}
             onClick={handleSaveClick}
-            disabled={!isLoggedIn}
+            // disabled={!isLoggedIn}
           ></button>
         )}
       </div>

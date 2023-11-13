@@ -210,6 +210,7 @@ function App() {
               handleSaveArticle={handleSaveArticle}
               handleUnsaveArticle={handleUnsaveArticle}
               handleRemoveArticle={handleRemoveArticle}
+              handleSignInModal={handleSignInModal}
             />
           </Route>
           <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
