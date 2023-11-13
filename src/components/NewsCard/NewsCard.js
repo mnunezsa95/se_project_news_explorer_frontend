@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
-import noUrlImage from "../../images/no-url-image.jpeg";
 import "./NewsCard.css";
 
 function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleRemoveArticle }) {
-  const formattedDate = formatSearchResDate(newsItem.publishedAt);
+  const formattedDate = formatSearchResDate(newsItem.publishedAt || newsItem.date);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
@@ -35,7 +34,7 @@ function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleRemo
           ></button>
         )}
       </div>
-      <img className="newscard__image" src={newsItem.urlToImage || newsItem.image || noUrlImage} alt={newsItem.description} />
+      <img className="newscard__image" src={newsItem.urlToImage || newsItem.image} alt={newsItem.description} />
       <div className="newscard__info-container">
         <p className="newscard__info-date">{formattedDate}</p>
         <h3 className="newscard__info-title">{newsItem.title}</h3>

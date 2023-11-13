@@ -16,11 +16,12 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-// constants, api functions
+// constants, api functions, other
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
 import { saveArticle, getSavedArticles, removeArticle } from "../../utils/MainApi.js";
 import { capitalizeFirstLetter } from "../../utils/constants.js";
+import noUrlImage from "../../images/no-url-image.jpeg";
 
 function App() {
   // states
@@ -92,6 +93,11 @@ function App() {
     searchNews
       .then((data) => {
         data.articles.forEach((item) => (item.keyword = capitalizeFirstLetter(userInput)));
+        data.articles.forEach((item) => {
+          if (item.urlToImage === null) {
+            item.urlToImage = noUrlImage;
+          }
+        });
         setIsSearching(true);
         setSearchResults(data.articles);
         setIsPageLoading(false);
@@ -173,7 +179,7 @@ function App() {
         <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
           <Route path="/saved-news">
             <SavedNewsHeader isLoggedIn={isLoggedIn} currentUser={currentUser} savedNews={savedNews} onLogout={handleSignOut} />
-            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} handleSaveArticle={handleSaveArticle} handleRemoveArticle={handleRemoveArticle} />
+            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} handleRemoveArticle={handleRemoveArticle} />
           </Route>
         </ProtectedRoute>
       </Switch>
