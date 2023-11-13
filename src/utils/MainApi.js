@@ -38,7 +38,6 @@ const removeArticle = (articleId) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("jsonwebtoken")}`,
     },
-    body: JSON.stringify({ articleId }),
   }).then(checkServerResponse);
 };
 
