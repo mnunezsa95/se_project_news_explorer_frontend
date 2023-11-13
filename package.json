@@ -15,11 +15,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "npm run build && scp -r -i ~/.ssh/id_ed25519 ./build/* mnunezsa95@news-explorer.mooo.com:/home/mnunezsa95/se_project_news_explorer_backend"
   },
   "eslintConfig": {
     "extends": [
