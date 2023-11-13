@@ -125,13 +125,15 @@ function App() {
           return article.link === newsItem.url;
         })
       : undefined;
-    removeArticle(articleBeingDeleted._id).then(() => {
-      setSavedNews(
-        savedNews.filter((article) => {
-          return article.link !== newsItem.url;
-        })
-      ).catch((err) => console.error(err));
-    });
+    removeArticle(articleBeingDeleted._id)
+      .then(() => {
+        setSavedNews(
+          savedNews.filter((article) => {
+            return article.link !== newsItem.url;
+          })
+        );
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleRemoveArticle = (newsItem) => {
@@ -143,13 +145,15 @@ function App() {
           return article.link === newsItem.link;
         })
       : undefined;
-    removeArticle(articleBeingDeleted._id).then(() => {
-      setSavedNews(
-        savedNews.filter((article) => {
-          return article.link !== newsItem.link;
-        })
-      ).catch((err) => console.error(err));
-    });
+    removeArticle(articleBeingDeleted._id)
+      .then(() => {
+        setSavedNews(
+          savedNews.filter((article) => {
+            return article.link !== newsItem.link;
+          })
+        );
+      })
+      .catch((err) => console.error(err));
   };
 
   // useFffects
