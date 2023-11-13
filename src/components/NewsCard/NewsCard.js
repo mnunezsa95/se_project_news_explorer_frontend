@@ -4,15 +4,13 @@ import { useLocation } from "react-router-dom";
 import noUrlImage from "../../images/no-url-image.jpeg";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsArticle }) {
+function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleRemoveArticle }) {
   const formattedDate = formatSearchResDate(newsItem.publishedAt);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
-  const handleSaveClick = () => (isSaved ? removeNewsArticle(newsItem) : saveNewsArticle(newsItem, newsItem.keyword));
-
-  console.log(isSaved);
+  const handleSaveClick = () => (isSaved ? handleRemoveArticle(newsItem) : handleSaveArticle(newsItem, newsItem.keyword));
 
   return (
     <article className="newscard__container">

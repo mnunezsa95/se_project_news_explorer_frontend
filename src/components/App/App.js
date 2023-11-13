@@ -99,12 +99,12 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  const saveNewsArticle = (newsItem, keyword = "Keyword N/A") => {
+  const handleSaveArticle = (newsItem, keyword = "Keyword N/A") => {
     setSavedNews([...savedNews, newsItem]);
     saveArticle(newsItem, keyword);
   };
 
-  const removeNewsArticle = (newsItem) => {
+  const handleRemoveArticle = (newsItem) => {
     console.log(newsItem.url);
     setSavedNews(
       savedNews.filter((article) => {
@@ -165,14 +165,14 @@ function App() {
             searchResults={searchResults}
             isPageLoading={isPageLoading}
             savedNews={savedNews}
-            saveNewsArticle={saveNewsArticle}
-            removeNewsArticle={removeNewsArticle}
+            handleSaveArticle={handleSaveArticle}
+            handleRemoveArticle={handleRemoveArticle}
           />
         </Route>
         <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
           <Route path="/saved-news">
             <SavedNewsHeader isLoggedIn={isLoggedIn} currentUser={currentUser} savedNews={savedNews} onLogout={handleSignOut} />
-            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} saveNewsArticle={saveNewsArticle} removeNewsArticle={removeNewsArticle} />
+            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} handleSaveArticle={handleSaveArticle} handleRemoveArticle={handleRemoveArticle} />
           </Route>
         </ProtectedRoute>
       </Switch>
