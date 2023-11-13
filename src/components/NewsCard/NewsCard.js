@@ -3,13 +3,14 @@ import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleRemoveArticle }) {
+function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleUnsaveArticle, handleRemoveArticle }) {
   const formattedDate = formatSearchResDate(newsItem.publishedAt || newsItem.date);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
-  const handleSaveClick = () => (isSaved ? handleRemoveArticle(newsItem) : handleSaveArticle(newsItem, newsItem.keyword));
+  const handleSaveClick = () => (isSaved ? handleUnsaveArticle(newsItem) : handleSaveArticle(newsItem, newsItem.keyword));
+  const handleDeleteClick = () => handleRemoveArticle(newsItem);
 
   return (
     <article className="newscard__container">
@@ -23,7 +24,7 @@ function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleRemo
           ""
         )}
         {isLoggedIn && location === "/saved-news" ? (
-          <button className="newscard__delete-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon}></button>
+          <button className="newscard__delete-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon} onClick={handleDeleteClick}></button>
         ) : (
           <button
             className={isSaved ? "newscard__bookmark-button-active" : "newscard__bookmark-button"}

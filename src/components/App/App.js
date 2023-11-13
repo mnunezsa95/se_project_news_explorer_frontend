@@ -111,14 +111,40 @@ function App() {
     });
   };
 
+  const handleUnsaveArticle = (newsItem) => {
+    const isArticleSaved = savedNews.some((article) => {
+      return article.link === newsItem.url;
+    });
+    const articleBeingDeleted = isArticleSaved
+      ? savedNews.find((article) => {
+          return article.link === newsItem.url;
+        })
+      : undefined;
+    removeArticle(articleBeingDeleted._id).then(() => {
+      setSavedNews(
+        savedNews.filter((article) => {
+          return article.link !== newsItem.url;
+        })
+      );
+    });
+  };
+
   const handleRemoveArticle = (newsItem) => {
-    console.log(newsItem.url);
-    setSavedNews(
-      savedNews.filter((article) => {
-        removeArticle(article._id);
-        return article.link !== newsItem.url;
-      })
-    );
+    const isArticleSaved = savedNews.some((article) => {
+      return article.link === newsItem.link;
+    });
+    const articleBeingDeleted = isArticleSaved
+      ? savedNews.find((article) => {
+          return article.link === newsItem.link;
+        })
+      : undefined;
+    removeArticle(articleBeingDeleted._id).then(() => {
+      setSavedNews(
+        savedNews.filter((article) => {
+          return article.link !== newsItem.link;
+        })
+      );
+    });
   };
 
   // useFffects
@@ -173,6 +199,7 @@ function App() {
             isPageLoading={isPageLoading}
             savedNews={savedNews}
             handleSaveArticle={handleSaveArticle}
+            handleUnsaveArticle={handleUnsaveArticle}
             handleRemoveArticle={handleRemoveArticle}
           />
         </Route>
