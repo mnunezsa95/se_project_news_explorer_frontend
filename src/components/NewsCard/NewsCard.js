@@ -12,6 +12,8 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
   const handleHideIcon = () => setShowIcon(false);
   const handleSaveClick = () => (isSaved ? removeNewsArticle(newsItem) : saveNewsArticle(newsItem, newsItem.keyword));
 
+  console.log(isSaved);
+
   return (
     <article className="newscard__container">
       {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">{newsItem.keyword}</div> : ""}

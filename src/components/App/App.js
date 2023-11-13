@@ -84,16 +84,17 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  const saveNewsArticle = (newsArticle, keyword = "Keyword N/A") => {
-    saveArticle(newsArticle, keyword);
-    setSavedNews([...savedNews, newsArticle]);
+  const saveNewsArticle = (newsItem, keyword = "Keyword N/A") => {
+    setSavedNews([...savedNews, newsItem]);
+    saveArticle(newsItem, keyword);
   };
 
-  const removeNewsArticle = (newsArticle) => {
+  const removeNewsArticle = (newsItem) => {
+    console.log(newsItem.url);
     setSavedNews(
       savedNews.filter((article) => {
         removeArticle(article._id);
-        return article.link !== newsArticle.url;
+        return article.link !== newsItem.url;
       })
     );
   };
@@ -155,8 +156,8 @@ function App() {
         </Route>
         <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
           <Route path="/saved-news">
-            <SavedNewsHeader isLoggedIn={isLoggedIn} currentUser={currentUser} onLogout={handleSignOut} />
-            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
+            <SavedNewsHeader isLoggedIn={isLoggedIn} currentUser={currentUser} savedNews={savedNews} onLogout={handleSignOut} />
+            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} saveNewsArticle={saveNewsArticle} removeNewsArticle={removeNewsArticle} />
           </Route>
         </ProtectedRoute>
       </Switch>
