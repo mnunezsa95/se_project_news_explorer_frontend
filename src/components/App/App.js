@@ -100,8 +100,9 @@ function App() {
   };
 
   const handleSaveArticle = (newsItem, keyword = "Keyword N/A") => {
-    setSavedNews([...savedNews, newsItem]);
-    saveArticle(newsItem, keyword);
+    saveArticle(newsItem, keyword).then((data) => {
+      setSavedNews([...savedNews, data]);
+    });
   };
 
   const handleRemoveArticle = (newsItem) => {
