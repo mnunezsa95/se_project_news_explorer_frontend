@@ -1,4 +1,5 @@
-export const BASE_URL = "https://newsapi.org/v2/everything?";
+export const BASE_URL = process.env.NODE_ENV === "production" ? "https://api.news-explorer.mooo.com" : "http://localhost:3001";
+export const NEWSAPI_URL = "https://nomoreparties.co/news/v2/everything?";
 export const apiKey = "4bfe57c6a85a467cbe63a01fcc5e32fc";
 export const lang = navigator.language.split("-"); // retrieves language from user browser
 
@@ -24,6 +25,10 @@ function getLastWeekDate() {
   return formattedDate;
 }
 export const previousWeek = getLastWeekDate();
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 // checks server response
 export const checkServerResponse = (res) => {

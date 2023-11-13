@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# se_project_news_explorer_frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+- Intro - About the project
+- Description of the Project
+- Plans for Improvement
+- Running the Project
+- Testing
 
-In the project directory, you can run:
+### Intro - About the project
 
-### `npm start`
+This project serves as the frontend component for the News Explorer application. The backend server was created using Express.js, Node.js, MongoDB, and follows the principles for a REST API. The code to the backend server can be found [here](https://github.com/mnunezsa95/se_project_news_explorer_backend)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Description of the Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The News Explorer front-end component was built using React.js, CSS, and JavaScript and serves as frontend frame of this News Explorer Application. The project takes a module-based approach to the component design, with each unqiue components. The application has several features, such as accessing the saved-news route, and saving articles, that can only be used when an account is created by the user. However, there are other features, like searching for artivcle that can be accessed without needing to sign up.
 
-### `npm test`
+### Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js : A front end web application framework for building applications that have the ability to render upon change in state.
+- Postman : Postman is an API Platform for developers to design, build, test and iterate their APIs.
+- ESLint : ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code.
 
-### `npm run build`
+### Plans for Improvement
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Add a feature for users to share their bookmarked news articles with other users.
+- Introduce features for users to change account information (email, password, name)
+- Add a feature for users to add a profile picture or avatar
+- Add a sort feature for users to sort articles in different orders (alphabetically, by date, etc)
+- Add a search feature for users to have more control over their search parameters (add a starting date / ending date, etc)
+- Add testing scripts to the project to allow for futher scaling while maintaing and preserving existing code functionality.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running the Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm run start` — to launch the server
 
-### `npm run eject`
+### Links
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Domain: [https://www.news-explorer.mooo.com](https://www.news-explorer.mooo.com), [https://news-explorer.mooo.com](https://news-explorer.mooo.com)
+- API Domain: [https://api.news-explorer.mooo.com](https://api.news-explorer.mooo.com)

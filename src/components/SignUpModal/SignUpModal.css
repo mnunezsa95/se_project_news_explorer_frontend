@@ -1,0 +1,3 @@
+.form__label:nth-of-type(2n) {
+  padding-top: 31px;
+}

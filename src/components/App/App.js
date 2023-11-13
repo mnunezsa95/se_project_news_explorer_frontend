@@ -11,51 +11,82 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
-import LoginModal from "../LoginModal/LoginModal";
-import RegisterModal from "../RegisterModal/RegisterModal";
+import SignInModal from "../SignInModal/SignInModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
+// constants, api functions, other
 import { getNewsArticles } from "../../utils/api";
+import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
+import { saveArticle, getSavedArticles, removeArticle } from "../../utils/MainApi.js";
+import { capitalizeFirstLetter } from "../../utils/constants.js";
+import noUrlImage from "../../images/no-url-image.jpeg";
+
+// contexts
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
   // states
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isModalLoading, setIsModalLoading] = useState(false); //! Will use setIsModalLoading for login/register modals
+  const [isModalLoading, setIsModalLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [savedNews, setSavedNews] = useState([]);
-  // const [token, setToken] = React.useState(""); //! Will use for authentication
+  const [token, setToken] = React.useState("");
+  const [serverErrors, setServerErrors] = useState({});
 
   // functions
-  const handleRegisterModal = () => setActiveModal("register");
-  const handleLoginModal = () => setActiveModal("login");
+  const handleSignUpModal = () => {
+    setActiveModal("signUp");
+    setServerErrors({
+      ...serverErrors,
+      conflictError: "",
+    });
+  };
+  const handleSignInModal = () => setActiveModal("signIn");
   const handleCloseModal = () => setActiveModal(null);
 
-  const saveNewsArticle = (newsArticle) => setSavedNews([...savedNews, newsArticle]);
-  const removeNewsArticle = (newsArticle) => setSavedNews(savedNews.filter((article) => article.url !== newsArticle.url));
-
-  const handleRegistration = ({ emailValue, passwordValue, usernameValue }) => {
-    // setIsModalLoading(true); //! To use when auth api call is set up
-    console.log(emailValue, passwordValue, usernameValue);
-    handleCloseModal();
-    setActiveModal("success");
-    setIsModalLoading(false);
+  const handleSignUp = (values) => {
+    setIsModalLoading(true);
+    signUp({ email: values.email, password: values.password, name: values.name })
+      .then(() => {
+        handleCloseModal();
+        setActiveModal("success");
+      })
+      .catch((err) => {
+        if (err.includes("409")) {
+          setServerErrors({
+            ...serverErrors,
+            conflictError: "This email is already in use",
+          });
+        }
+      })
+      .finally(() => {
+        setIsModalLoading(false);
+      });
   };
 
-  const handleLogin = ({ emailValue, passwordValue }) => {
-    // setIsModalLoading(true); //! To use when auth api call is set up
-    console.log(emailValue, passwordValue);
-    handleCloseModal();
-    setIsLoggedIn(true);
-    setIsModalLoading(false);
+  const handleSignIn = (values) => {
+    setIsModalLoading(true);
+    signIn({ email: values.email, password: values.password })
+      .then((res) => {
+        localStorage.setItem("jsonwebtoken", res.token);
+        setToken(localStorage.getItem("jsonwebtoken"));
+        setCurrentUser(res);
+        setIsLoggedIn(true);
+      })
+      .then(() => handleCloseModal())
+      .catch((err) => console.error(err))
+      .finally(() => setIsModalLoading(false));
   };
 
   const handleSignOut = () => {
-    // delete token
-    //! add redirection at some point
-    setCurrentUser(false);
+    localStorage.removeItem("jsonwebtoken");
+    setCurrentUser(null);
     setIsLoggedIn(false);
   };
 
@@ -64,6 +95,12 @@ function App() {
     const searchNews = getNewsArticles(userInput);
     searchNews
       .then((data) => {
+        data.articles.forEach((item) => (item.keyword = capitalizeFirstLetter(userInput)));
+        data.articles.forEach((item) => {
+          if (item.urlToImage === null) {
+            item.urlToImage = noUrlImage;
+          }
+        });
         setIsSearching(true);
         setSearchResults(data.articles);
         setIsPageLoading(false);
@@ -71,7 +108,68 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  // effects
+  const handleSaveArticle = (newsItem, keyword = "Keyword N/A") => {
+    saveArticle(newsItem, keyword)
+      .then((data) => {
+        setSavedNews([...savedNews, data]);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleUnsaveArticle = (newsItem) => {
+    const isArticleSaved = savedNews.some((article) => {
+      return article.link === newsItem.url;
+    });
+    const articleBeingDeleted = isArticleSaved
+      ? savedNews.find((article) => {
+          return article.link === newsItem.url;
+        })
+      : undefined;
+    removeArticle(articleBeingDeleted._id)
+      .then(() => {
+        setSavedNews(
+          savedNews.filter((article) => {
+            return article.link !== newsItem.url;
+          })
+        );
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleRemoveArticle = (newsItem) => {
+    const isArticleSaved = savedNews.some((article) => {
+      return article.link === newsItem.link;
+    });
+    const articleBeingDeleted = isArticleSaved
+      ? savedNews.find((article) => {
+          return article.link === newsItem.link;
+        })
+      : undefined;
+    removeArticle(articleBeingDeleted._id)
+      .then(() => {
+        setSavedNews(
+          savedNews.filter((article) => {
+            return article.link !== newsItem.link;
+          })
+        );
+      })
+      .catch((err) => console.error(err));
+  };
+
+  // useFffects
+  useEffect(() => {
+    const jwt = localStorage.getItem("jsonwebtoken");
+    if (jwt) {
+      setToken(jwt);
+      authorizeToken(jwt)
+        .then((res) => {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+        })
+        .catch((err) => console.error("Invalid token: ", err));
+    }
+  }, [token]);
+
   useEffect(() => {
     if (!activeModal) return;
     const handleEscClose = (evt) => {
@@ -81,57 +179,74 @@ function App() {
     return () => document.removeEventListener("keydown", handleEscClose);
   }, [activeModal]);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      getSavedArticles()
+        .then((data) => {
+          setSavedNews(data);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [isLoggedIn]);
+
   return (
-    <div className="page">
-      <Switch>
-        <Route exact path="/">
-          <Header
-            isLoggedIn={isLoggedIn}
-            onLoginModal={handleLoginModal}
-            onRegisterModal={handleRegisterModal}
-            onLogout={handleSignOut}
-            onSubmit={handleNewsArticleSearch}
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <Switch>
+          <Route exact path="/">
+            <Header
+              isLoggedIn={isLoggedIn}
+              onSignInModal={handleSignInModal}
+              onSignUpModal={handleSignUpModal}
+              onLogout={handleSignOut}
+              onSubmit={handleNewsArticleSearch}
+            />
+            <Main
+              isLoggedIn={isLoggedIn}
+              isSearching={isSearching}
+              searchResults={searchResults}
+              isPageLoading={isPageLoading}
+              savedNews={savedNews}
+              handleSaveArticle={handleSaveArticle}
+              handleUnsaveArticle={handleUnsaveArticle}
+              handleRemoveArticle={handleRemoveArticle}
+              handleSignInModal={handleSignInModal}
+            />
+          </Route>
+          <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
+            <Route path="/saved-news">
+              <SavedNewsHeader isLoggedIn={isLoggedIn} savedNews={savedNews} onLogout={handleSignOut} />
+              <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} handleRemoveArticle={handleRemoveArticle} />
+            </Route>
+          </ProtectedRoute>
+        </Switch>
+        <Footer />
+        {activeModal === "signUp" && (
+          <SignUpModal
+            isOpen={activeModal === "signUp"}
+            onSignUpModal={handleSignUpModal}
+            onSignInModal={handleSignInModal}
+            handleCloseModal={handleCloseModal}
+            isModalLoading={isModalLoading}
+            onSubmit={handleSignUp}
+            serverErrors={serverErrors}
           />
-          <Main
-            isLoggedIn={isLoggedIn}
-            isSearching={isSearching}
-            searchResults={searchResults}
-            isPageLoading={isPageLoading}
-            savedNews={savedNews}
-            saveNewsArticle={saveNewsArticle}
-            removeNewsArticle={removeNewsArticle}
+        )}
+        {activeModal === "signIn" && (
+          <SignInModal
+            isOpen={activeModal === "signIn"}
+            onSignInModal={handleSignInModal}
+            onSignUpModal={handleSignUpModal}
+            handleCloseModal={handleCloseModal}
+            isModalLoading={isModalLoading}
+            onSubmit={handleSignIn}
           />
-        </Route>
-        <Route path="/saved-news">
-          <SavedNewsHeader isLoggedIn={isLoggedIn} onLogout={handleSignOut} />
-          <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} />
-        </Route>
-      </Switch>
-      <Footer />
-      {activeModal === "login" && (
-        <LoginModal
-          isOpen={activeModal === "login"}
-          onLoginModal={handleLoginModal}
-          onRegisterModal={handleRegisterModal}
-          handleCloseModal={handleCloseModal}
-          isModalLoading={isModalLoading}
-          onSubmit={handleLogin}
-        />
-      )}
-      {activeModal === "register" && (
-        <RegisterModal
-          isOpen={activeModal === "register"}
-          onRegisterModal={handleRegisterModal}
-          onLoginModal={handleLoginModal}
-          handleCloseModal={handleCloseModal}
-          isModalLoading={isModalLoading}
-          onSubmit={handleRegistration}
-        />
-      )}
-      {activeModal === "success" && (
-        <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onLoginModal={handleLoginModal} />
-      )}
-    </div>
+        )}
+        {activeModal === "success" && (
+          <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onSignInModal={handleSignInModal} />
+        )}
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

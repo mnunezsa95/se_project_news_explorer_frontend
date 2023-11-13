@@ -3,17 +3,24 @@ import { formatSearchResDate } from "../../utils/constants";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
 
-function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsArticle }) {
-  const formattedDate = formatSearchResDate(newsItem.publishedAt);
+function NewsCard({ isLoggedIn, newsItem, isSaved, handleSaveArticle, handleUnsaveArticle, handleRemoveArticle, handleSignInModal }) {
+  const formattedDate = formatSearchResDate(newsItem.publishedAt || newsItem.date);
   const [showIcon, setShowIcon] = useState(false);
   const location = useLocation().pathname;
   const handleShowIcon = () => setShowIcon(true);
   const handleHideIcon = () => setShowIcon(false);
-  const handleSaveClick = () => (isSaved ? removeNewsArticle(newsItem) : saveNewsArticle(newsItem));
+  const handleSaveClick = () => {
+    if (isLoggedIn) {
+      isSaved ? handleUnsaveArticle(newsItem) : handleSaveArticle(newsItem, newsItem.keyword);
+    } else {
+      handleSignInModal();
+    }
+  };
+  const handleDeleteClick = () => handleRemoveArticle(newsItem);
 
   return (
     <article className="newscard__container">
-      {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">Yellowstone</div> : ""}
+      {isLoggedIn && location === "/saved-news" ? <div className="newscard__keyword-section">{newsItem.keyword}</div> : ""}
       <div className="newscard__bookmark-section">
         {!isLoggedIn && !isSaved && showIcon ? (
           <p className="newscard__bookmark-additional">Sign in to save articles</p>
@@ -23,14 +30,14 @@ function NewsCard({ isLoggedIn, newsItem, saveNewsArticle, isSaved, removeNewsAr
           ""
         )}
         {isLoggedIn && location === "/saved-news" ? (
-          <button className="newscard__delete-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon}></button>
+          <button className="newscard__delete-button" onMouseOver={handleShowIcon} onMouseOut={handleHideIcon} onClick={handleDeleteClick}></button>
         ) : (
           <button
             className={isSaved ? "newscard__bookmark-button-active" : "newscard__bookmark-button"}
             onMouseOver={handleShowIcon}
             onMouseOut={handleHideIcon}
             onClick={handleSaveClick}
-            disabled={!isLoggedIn}
+            // disabled={!isLoggedIn}
           ></button>
         )}
       </div>
