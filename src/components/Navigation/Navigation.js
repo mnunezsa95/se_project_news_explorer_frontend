@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 import "./Navigation.css";
 
-function Navigation({ isLoggedIn, currentUser, onSignInModal, onLogout }) {
+function Navigation({ isLoggedIn, onSignInModal, onLogout }) {
   const reactLocation = useLocation();
   const currentLocation = reactLocation.pathname;
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <nav className="nav">

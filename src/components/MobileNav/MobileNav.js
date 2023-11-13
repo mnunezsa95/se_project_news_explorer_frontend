@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./MobileNav.css";
 
-function MobileNav({ isLoggedIn, currentUser, onSignInModal, onLogout }) {
+function MobileNav({ isLoggedIn, onSignInModal, onLogout }) {
   const reactLocation = useLocation();
   const currentLocation = reactLocation.pathname;
   const [mobileMenu, setMobileMenu] = useState(false);
   const handleMenuToggle = () => setMobileMenu(!mobileMenu);
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <>

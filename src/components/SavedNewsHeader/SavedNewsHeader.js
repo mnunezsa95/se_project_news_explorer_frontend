@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SavedNewsHeader.css";
 import Navigation from "../Navigation/Navigation";
 import MobileNav from "../MobileNav/MobileNav";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function SavedNewsHeader({ isLoggedIn, currentUser, savedNews, onLogout }) {
+function SavedNewsHeader({ isLoggedIn, savedNews, onLogout }) {
+  const currentUser = useContext(CurrentUserContext);
   const currentUserArticles = savedNews.filter((article) => article.owner === currentUser?._id);
   const keywordArray = currentUserArticles.map((card) => card.keyword);
 

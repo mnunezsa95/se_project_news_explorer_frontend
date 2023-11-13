@@ -23,6 +23,9 @@ import { saveArticle, getSavedArticles, removeArticle } from "../../utils/MainAp
 import { capitalizeFirstLetter } from "../../utils/constants.js";
 import noUrlImage from "../../images/no-url-image.jpeg";
 
+// contexts
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+
 function App() {
   // states
   const [currentUser, setCurrentUser] = useState(null);
@@ -106,9 +109,11 @@ function App() {
   };
 
   const handleSaveArticle = (newsItem, keyword = "Keyword N/A") => {
-    saveArticle(newsItem, keyword).then((data) => {
-      setSavedNews([...savedNews, data]);
-    });
+    saveArticle(newsItem, keyword)
+      .then((data) => {
+        setSavedNews([...savedNews, data]);
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleUnsaveArticle = (newsItem) => {
@@ -125,7 +130,7 @@ function App() {
         savedNews.filter((article) => {
           return article.link !== newsItem.url;
         })
-      );
+      ).catch((err) => console.error(err));
     });
   };
 
@@ -143,7 +148,7 @@ function App() {
         savedNews.filter((article) => {
           return article.link !== newsItem.link;
         })
-      );
+      ).catch((err) => console.error(err));
     });
   };
 
@@ -181,61 +186,62 @@ function App() {
   }, [isLoggedIn]);
 
   return (
-    <div className="page">
-      <Switch>
-        <Route exact path="/">
-          <Header
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <Switch>
+          <Route exact path="/">
+            <Header
+              isLoggedIn={isLoggedIn}
+              onSignInModal={handleSignInModal}
+              onSignUpModal={handleSignUpModal}
+              onLogout={handleSignOut}
+              onSubmit={handleNewsArticleSearch}
+            />
+            <Main
+              isLoggedIn={isLoggedIn}
+              isSearching={isSearching}
+              searchResults={searchResults}
+              isPageLoading={isPageLoading}
+              savedNews={savedNews}
+              handleSaveArticle={handleSaveArticle}
+              handleUnsaveArticle={handleUnsaveArticle}
+              handleRemoveArticle={handleRemoveArticle}
+            />
+          </Route>
+          <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
+            <Route path="/saved-news">
+              <SavedNewsHeader isLoggedIn={isLoggedIn} savedNews={savedNews} onLogout={handleSignOut} />
+              <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} handleRemoveArticle={handleRemoveArticle} />
+            </Route>
+          </ProtectedRoute>
+        </Switch>
+        <Footer />
+        {activeModal === "signUp" && (
+          <SignUpModal
+            isOpen={activeModal === "signUp"}
+            onSignUpModal={handleSignUpModal}
+            onSignInModal={handleSignInModal}
+            handleCloseModal={handleCloseModal}
+            isModalLoading={isModalLoading}
+            onSubmit={handleSignUp}
+            serverErrors={serverErrors}
+          />
+        )}
+        {activeModal === "signIn" && (
+          <SignInModal
+            isOpen={activeModal === "signIn"}
             onSignInModal={handleSignInModal}
             onSignUpModal={handleSignUpModal}
-            onLogout={handleSignOut}
-            onSubmit={handleNewsArticleSearch}
+            handleCloseModal={handleCloseModal}
+            isModalLoading={isModalLoading}
+            onSubmit={handleSignIn}
           />
-          <Main
-            isLoggedIn={isLoggedIn}
-            isSearching={isSearching}
-            searchResults={searchResults}
-            isPageLoading={isPageLoading}
-            savedNews={savedNews}
-            handleSaveArticle={handleSaveArticle}
-            handleUnsaveArticle={handleUnsaveArticle}
-            handleRemoveArticle={handleRemoveArticle}
-          />
-        </Route>
-        <ProtectedRoute isLoggedIn={isLoggedIn} path="/saved-news">
-          <Route path="/saved-news">
-            <SavedNewsHeader isLoggedIn={isLoggedIn} currentUser={currentUser} savedNews={savedNews} onLogout={handleSignOut} />
-            <SavedNews isLoggedIn={isLoggedIn} savedNews={savedNews} handleRemoveArticle={handleRemoveArticle} />
-          </Route>
-        </ProtectedRoute>
-      </Switch>
-      <Footer />
-      {activeModal === "signUp" && (
-        <SignUpModal
-          isOpen={activeModal === "signUp"}
-          onSignUpModal={handleSignUpModal}
-          onSignInModal={handleSignInModal}
-          handleCloseModal={handleCloseModal}
-          isModalLoading={isModalLoading}
-          onSubmit={handleSignUp}
-          serverErrors={serverErrors}
-        />
-      )}
-      {activeModal === "signIn" && (
-        <SignInModal
-          isOpen={activeModal === "signIn"}
-          onSignInModal={handleSignInModal}
-          onSignUpModal={handleSignUpModal}
-          handleCloseModal={handleCloseModal}
-          isModalLoading={isModalLoading}
-          onSubmit={handleSignIn}
-        />
-      )}
-      {activeModal === "success" && (
-        <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onSignInModal={handleSignInModal} />
-      )}
-    </div>
+        )}
+        {activeModal === "success" && (
+          <SuccessModal modalName="success" isOpen={activeModal === "success"} handleCloseModal={handleCloseModal} onSignInModal={handleSignInModal} />
+        )}
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
