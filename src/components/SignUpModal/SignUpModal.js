@@ -4,7 +4,7 @@ import { useFormWithValidation } from "../../hooks/useForm";
 
 import "./SignUpModal.css";
 
-function SignUpModal({ handleCloseModal, isOpen, onSignInModal, onSubmit, isModalLoading }) {
+function SignUpModal({ handleCloseModal, isOpen, onSignInModal, onSubmit, isModalLoading, serverErrors }) {
   const { values, errors, handleChange, isValid, resetForm } = useFormWithValidation({ email: "", password: "", name: "" });
   useEffect(() => {
     if (isOpen) {
@@ -70,6 +70,9 @@ function SignUpModal({ handleCloseModal, isOpen, onSignInModal, onSubmit, isModa
         </label>
         <span className="form__error" id="name-input-error">
           {errors.name}
+        </span>
+        <span className="form__error-duplicate" id="duplicate-input-error">
+          {serverErrors.conflictError}
         </span>
       </div>
       <button className="modal__submit-button" type="submit" disabled={!isValid}>

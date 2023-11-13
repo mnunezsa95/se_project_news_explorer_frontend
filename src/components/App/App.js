@@ -33,9 +33,16 @@ function App() {
   const [isSearching, setIsSearching] = useState(false);
   const [savedNews, setSavedNews] = useState([]);
   const [token, setToken] = React.useState("");
+  const [serverErrors, setServerErrors] = useState({});
 
   // functions
-  const handleSignUpModal = () => setActiveModal("signUp");
+  const handleSignUpModal = () => {
+    setActiveModal("signUp");
+    setServerErrors({
+      ...serverErrors,
+      conflictError: "",
+    });
+  };
   const handleSignInModal = () => setActiveModal("signIn");
   const handleCloseModal = () => setActiveModal(null);
 
@@ -43,12 +50,20 @@ function App() {
     setIsModalLoading(true);
     signUp({ email: values.email, password: values.password, name: values.name })
       .then(() => {
-        setIsLoggedIn(true);
         handleCloseModal();
         setActiveModal("success");
       })
-      .catch((err) => console.error(err))
-      .finally(() => setIsModalLoading(false));
+      .catch((err) => {
+        if (err.includes("409")) {
+          setServerErrors({
+            ...serverErrors,
+            conflictError: "This email is already in use",
+          });
+        }
+      })
+      .finally(() => {
+        setIsModalLoading(false);
+      });
   };
 
   const handleSignIn = (values) => {
@@ -162,16 +177,6 @@ function App() {
         </ProtectedRoute>
       </Switch>
       <Footer />
-      {activeModal === "signIn" && (
-        <SignInModal
-          isOpen={activeModal === "signIn"}
-          onSignInModal={handleSignInModal}
-          onSignUpModal={handleSignUpModal}
-          handleCloseModal={handleCloseModal}
-          isModalLoading={isModalLoading}
-          onSubmit={handleSignIn}
-        />
-      )}
       {activeModal === "signUp" && (
         <SignUpModal
           isOpen={activeModal === "signUp"}
@@ -180,6 +185,17 @@ function App() {
           handleCloseModal={handleCloseModal}
           isModalLoading={isModalLoading}
           onSubmit={handleSignUp}
+          serverErrors={serverErrors}
+        />
+      )}
+      {activeModal === "signIn" && (
+        <SignInModal
+          isOpen={activeModal === "signIn"}
+          onSignInModal={handleSignInModal}
+          onSignUpModal={handleSignUpModal}
+          handleCloseModal={handleCloseModal}
+          isModalLoading={isModalLoading}
+          onSubmit={handleSignIn}
         />
       )}
       {activeModal === "success" && (
