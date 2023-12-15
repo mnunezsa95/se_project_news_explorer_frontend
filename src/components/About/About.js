@@ -11,8 +11,8 @@ function About() {
       <div className="about__info-container">
         <h2 className="about__title">About the author</h2>
         <p className="about__text">
-          This web-app was created by Marlon Nunez as part of TripleTen's graduation project. I am current project manager and aspirinng full-stack software
-          engineer based in Boston, MA.
+          I developed this web application as a crucial component of my TripleTen graduation project. As a Full-Stack Software Engineer situated in Boston, MA,
+          I am presently engaged as a project manager with an Ed-Tech Company in the same vibrant city. engineer based in Boston, MA.
         </p>
         <p className="about__text">
           In the past nine months, I've actively pursued my aspiration of entering the tech industry as an engineer. My experience at TripleTen has been
