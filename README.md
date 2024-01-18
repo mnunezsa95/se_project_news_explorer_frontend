@@ -1,41 +1,52 @@
-# se_project_news_explorer_frontend
+# News Explorer Application (Frontend)
 
 ## Overview
 
 - Intro - About the project
 - Description of the Project
+- Technologies
+- Figma Design
+- Links
+- Demo Credentials
 - Plans for Improvement
-- Running the Project
-- Testing
 
 ### Intro - About the project
 
-This project serves as the frontend component for the News Explorer application. The backend server was created using Express.js, Node.js, MongoDB, and follows the principles for a REST API. The code to the backend server can be found [here](https://github.com/mnunezsa95/se_project_news_explorer_backend)
+The front-end component of News Explorer is constructed using React.js, CSS, and JavaScript, forming the visual framework for the News Explorer Application. The back-end component is hosted in a separate repository (refer to the 'Links' section for details).
+
+News Explorer functions as a news-article search engine, allowing users to input queries and retrieve relevant news articles (three at a time). Users can access brief article descriptions. If they have an account, they can sign up and save their favorite articles; otherwise, they can only view them.
+
+The application is designed to be responsive on all screen sizes, starting from 250px and above. Notably, the mobile design features a distinct hamburger menu compared to the tablet and laptop designs.
 
 ### Description of the Project
 
-The News Explorer front-end component was built using React.js, CSS, and JavaScript and serves as frontend frame of this News Explorer Application. The project takes a module-based approach to the component design, with each unqiue components. The application has several features, such as accessing the saved-news route, and saving articles, that can only be used when an account is created by the user. However, there are other features, like searching for artivcle that can be accessed without needing to sign up.
+The project adopts a module-based approach to component design, incorporating distinct components. The application encompasses various features, including sign-up, log-in, article saving, and accessing a saved articles tab. Notably, certain features like article searching are accessible without requiring sign-up. Once signed up, users can freely save and unsave articles and sign out. User-initiated sign-out prompts the deletion of authentication credentials from local storage. This design ensures that users only need to log in when they choose to sign out, offering a seamless experience during repeated application access.
 
 ### Technologies Used
 
-- React.js : A front end web application framework for building applications that have the ability to render upon change in state.
-- Postman : Postman is an API Platform for developers to design, build, test and iterate their APIs.
-- ESLint : ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code.
-
-### Plans for Improvement
-
-- Add a feature for users to share their bookmarked news articles with other users.
-- Introduce features for users to change account information (email, password, name)
-- Add a feature for users to add a profile picture or avatar
-- Add a sort feature for users to sort articles in different orders (alphabetically, by date, etc)
-- Add a search feature for users to have more control over their search parameters (add a starting date / ending date, etc)
-- Add testing scripts to the project to allow for futher scaling while maintaing and preserving existing code functionality.
-
-### Running the Project
-
-`npm run start` — to launch the server
+- Frontend: JavaScript, React.js, CSS3, AJAX
+- Backend: Node.js, Express.js, Mongoose, REST API, Google Cloud
+- Tools Used: Webpack, Postman, ESLint
 
 ### Links
 
-- Domain: [https://www.news-explorer.mooo.com](https://www.news-explorer.mooo.com), [https://news-explorer.mooo.com](https://news-explorer.mooo.com)
-- API Domain: [https://api.news-explorer.mooo.com](https://api.news-explorer.mooo.com)
+- Domain (https://www.news-explorer.mooo.com): [Click here](https://www.news-explorer.mooo.com) to see the live version
+- API Domain: The API domain is https://api.news-explorer.mooo.com
+- Backend Code: The backend code can be viewed [here](https://github.com/mnunezsa95/se_project_news_explorer_backend)
+- External News API: [Click here](https://newsapi.org/) to see the News API.
+
+### Demo Credentials
+
+Use the following credentials to test out the application
+
+- Demo username: user1@gmail.com
+- Demo password: user1
+
+### Plans for Improvement
+
+1. Implement a capability for users to share their saved news articles with others.
+2. Introduce functionalities enabling users to modify account details such as email, password, and name.
+3. Incorporate a feature enabling users to upload a profile picture or avatar.
+4. Integrate a sorting feature, allowing users to arrange articles in various orders (alphabetically, by date, etc.).
+5. Introduce a search feature, empowering users to fine-tune search parameters, including adding starting and ending dates.
+6. Implement testing scripts to facilitate seamless scaling while ensuring the preservation of existing code functionality.
