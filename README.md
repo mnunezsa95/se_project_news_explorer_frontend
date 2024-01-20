@@ -1,6 +1,6 @@
 # News Explorer Application (Frontend)
 
-## Overview
+### Overview
 
 - Intro - About the project
 - Description of the Project
