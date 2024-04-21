@@ -1,11 +1,8 @@
-// react imports
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-
-// css styles
 import "./App.css";
 
-// components
+// Components
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import Main from "../Main/Main";
@@ -16,18 +13,17 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-// constants, api functions, other
+// Constants, API Functions
 import { getNewsArticles } from "../../utils/api";
 import { signUp, signIn, authorizeToken } from "../../utils/auth.js";
 import { saveArticle, getSavedArticles, removeArticle } from "../../utils/MainApi.js";
 import { capitalizeFirstLetter } from "../../utils/constants.js";
 import noUrlImage from "../../images/no-url-image.jpeg";
 
-// contexts
+// Contexts
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
-  // states
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isModalLoading, setIsModalLoading] = useState(false);
@@ -39,7 +35,7 @@ function App() {
   const [token, setToken] = React.useState("");
   const [serverErrors, setServerErrors] = useState({});
 
-  // functions
+  // Functions
   const handleSignUpModal = () => {
     setActiveModal("signUp");
     setServerErrors({
